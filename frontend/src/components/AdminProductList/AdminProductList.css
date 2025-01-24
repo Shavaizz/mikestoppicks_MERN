@@ -1,0 +1,82 @@
+/* Outer scrollable container */
+.Product-list-del-panel {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align the cards horizontally */
+    justify-content: center; /* Center the container itself vertically and horizontally */
+    overflow-y: auto; /* Enable vertical scrolling */
+    gap: 20px; /* Add spacing between product cards */
+    padding: 10px; /* Add padding inside the scrollable container */
+    border: 1px solid #ccc; /* Optional: Add a border around the container */
+    border-radius: 10px; /* Rounded corners for the container */
+    max-height: 400px; /* Set a fixed height for the scrollable area */
+    width: 440px; /* Set a fixed width */
+    height: auto; /* Let the height adjust to content */
+    position: relative; /* Ensure positioning is relative to parent container */
+    left: 50%;
+    transform: translateX(-50%); /* Center the container horizontally */
+    scrollbar-width: thin; /* Custom scrollbar styling (for modern browsers) */
+    scrollbar-color: #888 #f1f1f1;
+  }
+  
+  .Product-list-del-panel::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .Product-list-del-panel::-webkit-scrollbar-thumb {
+    background-color: #888; /* Darker scrollbar thumb */
+    border-radius: 10px;
+  }
+  
+  .Product-list-del-panel::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Lighter scrollbar track */
+  }
+  
+  /* Card styling */
+  .Product-item-for-del {
+    display: flex; /* Align image and details side by side */
+    flex-direction: row; /* Ensure horizontal layout within the card */
+    align-items: center; /* Vertically align content */
+    justify-content: center; /* Center content horizontally */
+    background-color: #f9f9f9; /* Light background for the card */
+    border: 1px solid #ddd; /* Border around each card */
+    border-radius: 10px; /* Rounded corners for the card */
+    padding: 10px; /* Inner padding for content */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    width: 100%; /* Reduce the width of the card */
+    max-width: 400px; /* Limit maximum width of the card */
+  }
+  
+  /* Image styling */
+  .Product-img {
+    width: 80px; /* Set a smaller width for the image */
+    height: 80px; /* Set a smaller height for the image */
+    object-fit: cover; /* Ensure image fits nicely */
+    border-radius: 5px; /* Optional: Rounded corners for the image */
+    margin-right: 15px; /* Spacing between image and details */
+  }
+  
+  /* Details styling */
+  .Product-details {
+    flex-grow: 1; /* Allow the details section to grow */
+  }
+  
+  .Product-details h3 {
+    margin: 0 0 5px 0; /* Reduce spacing for the title */
+    font-size: 1.2rem; /* Adjust font size */
+    color: #2B2C2D;
+  }
+  
+  .Product-details p {
+    margin: 5px 0; /* Add consistent spacing between details */
+    font-size: 0.9rem; /* Adjust font size for secondary details */
+    color: #555; /* Subtle text color */
+  }
+  
+  .fetch-button-admin-panel {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add spacing from the top */
+    position: relative; /* Ensure it stays in its intended stacking context */
+  }
+  

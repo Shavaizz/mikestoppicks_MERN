@@ -1,0 +1,27 @@
+.product-edit-form-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#product-edit-form-h2{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+}
+.product-edit-form{
+    display: flex;
+    flex-direction: column;
+    background-color:#2B2C2D ;
+    padding: 15%;
+    border-radius: 10%;
+}
+#product-edit-form-button{
+    width: 50%;
+    max-width: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+}

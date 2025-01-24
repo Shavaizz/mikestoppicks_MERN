@@ -1,0 +1,25 @@
+.navbar-wrapper{
+    background-color: #2B2C2D;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+}
+.navbar-nav{
+    margin: 0px;
+
+}
+#navbar-ul-wrapper{
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+}
+.navbar-nav ul a{
+    text-decoration: none;
+    color: #F1F0EA;
+    font-weight: bold;
+}
+h2{
+    margin: 0px;
+}

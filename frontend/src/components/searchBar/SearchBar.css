@@ -1,0 +1,8 @@
+#input-wrapper{
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 40px;
+}

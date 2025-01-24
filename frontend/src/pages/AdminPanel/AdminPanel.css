@@ -1,0 +1,17 @@
+.AdminPanelComponentsWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+#product-list-admin-h2{
+    margin-left: 25%;
+    margin-bottom: 2%;
+    font-size: 35px;
+}
+.AdminUserName{
+    margin-left: 5%;
+    font-size: 40px;
+    padding-top: 20px;
+}

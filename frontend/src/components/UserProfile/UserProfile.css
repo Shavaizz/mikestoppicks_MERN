@@ -1,0 +1,43 @@
+.complete-wrapper{
+    background-color: #2B2C2D;
+    border-radius: 15%;
+    padding: 20px; /* Add padding for better spacing */
+    margin: 30px auto; /* Center the wrapper */
+    max-width: 300px; /* Limit the width for better layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center;
+    text-align: center;
+}
+#image-user{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+.social-wrapper img{
+    border-radius: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
+}
+.social-wrapper ul{
+    margin: 0px;
+    padding: 0px;
+}
+.social-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.user-wrapper{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+

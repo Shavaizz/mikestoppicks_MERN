@@ -1,0 +1,27 @@
+.product-deletion-form-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#product-del-form-h2{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+}
+.product-del-form{
+    display: flex;
+    flex-direction: column;
+    background-color:#2B2C2D ;
+    padding: 5%;
+    border-radius: 10%;
+}
+#product-del-form-button{
+    width: 50%;
+    max-width: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+}
