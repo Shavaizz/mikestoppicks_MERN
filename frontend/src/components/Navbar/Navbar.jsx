@@ -15,6 +15,7 @@ const Navbar = ({user, setUser}) => {
       <ul><Link to="/">Home</Link></ul>
       <ul><Link to="/login">Login</Link></ul>
       {user?.isAdmin && <ul><Link to="/admin">Admin Panel</Link></ul>}
+      {user?.isAdmin && <ul><Link to="/admin-sign-up">New User Sign Up</Link></ul>}
       {user && <ul><button onClick={handleLogout}>Logout</button></ul>}
     </ul>
   </nav>

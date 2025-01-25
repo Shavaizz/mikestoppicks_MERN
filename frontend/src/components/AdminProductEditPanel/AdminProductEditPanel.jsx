@@ -9,7 +9,7 @@ const AdminProductEditPanel = () => {
     
     const editProduct = async (e) =>{
         e.preventDefault();
-        const request = await axios.put(`localhost:3000/api/products/update/${productId}`,{
+        const request = await axios.put(`http://localhost:3000/api/products/update/${productId}`,{
             "price":price,
             "image":url,
             "title":title
@@ -25,13 +25,13 @@ const AdminProductEditPanel = () => {
         <div className="product-edit-form-wrapper">
         <h2 id='product-edit-form-h2'>Edit Products</h2>
             <form className='product-edit-form'>
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="title-edit">Title:</label>
                 <input value={title} onChange={(e)=>{setTitle(e.target.value)}} type="text" id="title-edit" name="title" required/>
                 
-                <label htmlFor="price">Price:</label>
+                <label htmlFor="price-edit">Price:</label>
                 <input value={price} onChange={(e)=>{setPrice(e.target.value)}} type="number" id="price-edit" name="price" required/>
                 
-                <label htmlFor="image">Image URL:</label>
+                <label htmlFor="image-edit">Image URL:</label>
                 <input value={url} onChange={(e)=>{setUrl(e.target.value)}} type="url" id="image-edit" name="image" required/>
                 
                 <label htmlFor="productId">Product Id:</label>

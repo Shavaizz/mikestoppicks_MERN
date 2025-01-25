@@ -4,6 +4,7 @@ import SearchResultPage from './pages/searchResultPage/SearchResultPage';
 import Navbar from './components/Navbar/Navbar'
 import Login from "./pages/LoginPage/Login"
 import AdminPanel from "./pages/AdminPanel/AdminPanel"
+import AdminPanelSignUpPages from './pages/AdminPanelSignUpPages/AdminPanelSignUpPages';
 import ProtectedRoute from './components/ProtectedRoute';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 const App = () => {
@@ -34,6 +35,14 @@ const App = () => {
                 <AdminPanel user={user} />
               </ProtectedRoute>
             } 
+          />
+          <Route
+            path='/admin-sign-up'
+            element={
+              <ProtectedRoute user={user}>
+                <AdminPanelSignUpPages user={user}/>
+              </ProtectedRoute>
+            }
           />
         </Routes>
       </Router>
