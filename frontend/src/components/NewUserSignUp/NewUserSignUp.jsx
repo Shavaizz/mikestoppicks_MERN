@@ -39,7 +39,7 @@ const NewUserSignUp = () => {
             <input name ="usernick-feild" type='password' id="user-signup-password" value={password} onChange={(e)=>{setPassword(e.target.value)}} required/>
             <button type='submit' id='user-signup-submit-button' onClick={(e)=>{makeNewUser(e)}}>Submit</button>
         </form>
-        <p>{setCompletionMessage}</p>
+        <p>{completionMessage}</p>
     </div>
   )
 }

@@ -14,8 +14,6 @@ import './Login.css'
       e.preventDefault();
       setLoading(true);
       setError(''); // Clear previous errors
-      console.log('onLogin prop:', onLogin);
-
       try {
         const response = await axios.post('http://localhost:3000/api/user/login', {
           email,
@@ -24,8 +22,11 @@ import './Login.css'
         const { user, token } = response.data;
         if (user && token) {
           onLogin({ user, token });
-          navigate('/admin'); 
-        } else {
+          if (user.isAdmin) {
+            navigate('/admin');
+          } else {
+            navigate('/');
+          }        } else {
           console.log("user:", user);
           console.log("token:", token);
           throw new Error('Invalid server response');
