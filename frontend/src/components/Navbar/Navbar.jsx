@@ -13,8 +13,8 @@ const Navbar = ({user, setUser}) => {
   <nav className='navbar-nav'>
     <ul id='navbar-ul-wrapper'>
       <ul><Link to="/">Home</Link></ul>
-      <ul><Link to="/login">Login</Link></ul>
-      <ul><Link to="/register">Register</Link></ul>
+      {!user &&<ul><Link to="/login">Login</Link></ul>}
+      {!user && <ul><Link to="/register">Register</Link></ul>}
       {user?.isAdmin && <ul><Link to="/admin">Admin Panel</Link></ul>}
       {user?.isAdmin && <ul><Link to="/admin-sign-up">New User Sign Up</Link></ul>}
       {user && <ul><Link to="/cart">Cart</Link></ul> }

@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import productRoutes from './routes/productRoutes.js' 
 import authRoutes from './routes/authRoutes.js'
+import cartRoutes from './routes/cartRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
 const PORT = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URL;
 
@@ -27,7 +29,8 @@ app.get("/", async (req,res)=>{
 // Handles all requests to /api/products
 app.use('/api/products', productRoutes);
 app.use('/api/user', authRoutes);
-
+app.use('/api/cart', cartRoutes);
+app.use('/api/order', orderRoutes);
 // Mongo DB Connection
 mongoose
   .connect(MONGO_URL)
