@@ -43,6 +43,36 @@ router.get("/:userId", async (req, res) => {
     }
 });
 
+// Get Orders for a User ( WORKING )
+router.get("/", async (req, res) => {
+    try {
+        const orders = await Order.find({});
+        return res.status(200).json({
+            count:orders.length,
+            orders:orders,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: error.message });
+    }
+});
+
+// Get Orders for a User ( WORKING )
+router.get("/find/:status", async (req, res) => {
+    try {
+        const { status } = req.params;
+        const orders = await Order.find({ status });
+        return res.status(200).json({
+            count: orders.length,
+            orders: orders,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: error.message });
+    }
+});
+
+
 // Update Order Status ( WORKING )
 router.put("/update/:id", async (req, res) => {
     try {
