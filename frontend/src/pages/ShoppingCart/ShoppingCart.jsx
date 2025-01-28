@@ -5,6 +5,7 @@ const ShoppingCart = ({user}) => {
     return (
     <>
         <h2 id='welcome-user-message'>Hello, {username}</h2>
+        
     </>
 )
 }

@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.post('/login', async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
     if (user && (await bcrypt.compare(password, user.password))) {
       const token = jwt.sign(
         { id: user._id, isAdmin: user.userisadmin },
@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
         token,
       });
     } else {
-      res.status(401).json({ message: "Invalid email or password" });
+      res.status(401).json({ message: "Invalid username or password" });
     }
   } catch (error) {
     res.status(500).json({ message: "Error logging in.", error });

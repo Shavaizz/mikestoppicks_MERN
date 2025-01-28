@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import './Login.css'
   const Login = ({ onLogin }) => {
-    const [email, setEmail] = useState(''); // Renamed to email
+    const [username, setUsername] = useState(''); // Renamed to email
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -16,7 +16,7 @@ import './Login.css'
       setError(''); // Clear previous errors
       try {
         const response = await axios.post('http://localhost:3000/api/user/login', {
-          email,
+          username,
           password,
         });
         const { user, token } = response.data;
@@ -46,11 +46,11 @@ import './Login.css'
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <form id="form-wrapper" onSubmit={handleLogin} disabled={loading}>
             <div>
-              <label>Email:</label> {/* Updated label */}
+              <label>Username:</label> {/* Updated label */}
               <input
-                type="email"
-                value={email} // Updated to email
-                onChange={(e) => setEmail(e.target.value)} // Updated to setEmail
+                type="username"
+                value={username} // Updated to username
+                onChange={(e) => setUsername(e.target.value)} // Updated to username
                 required
               />
             </div>
