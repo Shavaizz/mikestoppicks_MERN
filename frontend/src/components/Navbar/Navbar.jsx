@@ -15,8 +15,8 @@ const Navbar = ({user, setUser}) => {
       <ul><Link to="/">Home</Link></ul>
       {!user &&<ul><Link to="/login">Login</Link></ul>}
       {!user && <ul><Link to="/register">Register</Link></ul>}
-      {user?.isAdmin && <ul><Link to="/admin">Admin Panel</Link></ul>}
-      {user?.isAdmin && <ul><Link to="/admin-sign-up">New User Sign Up</Link></ul>}
+      {user?.isAdmin && <ul><Link to="/product-panel">Admin Panel</Link></ul>}
+      {user?.isAdmin && <ul><Link to="/user-panel">User Creation</Link></ul>}
       {user && <ul><Link to="/cart">Cart</Link></ul> }
       {user && <ul><button onClick={handleLogout}>Logout</button></ul>}
     </ul>

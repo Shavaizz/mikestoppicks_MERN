@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+
 import HomePage from './pages/HomePage'
 import SearchResultPage from './pages/searchResultPage/SearchResultPage';
 import Navbar from './components/Navbar/Navbar'
@@ -9,6 +10,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/RegisterPage/RegisterPage';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import UserValidationRoute from './components/UserValidationRoute';
+import UserPanel from './pages/UserPanel/UserPanel';
+import OrderPanel from './pages/OrderPanel/OrderPanel'
+import Splash from './pages/Splash/Splash';
+import Cart from './pages/Cart/Cart'
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 const App = () => {
   const [user, setUser] = useState(null);
@@ -29,19 +35,30 @@ const App = () => {
         <Navbar user={user} setUser={setUser}/>
         </div>
         <Routes>
+          {/* User Accessible */}
           <Route path="/" element={<HomePage user={user} />}/>
           <Route path="/search-results" element={<SearchResultPage />} />
           <Route path="/login" element={<Login onLogin={handleLogin}/>}/>
           <Route path='/register' element={<Register/>}/>
-          <Route 
-            path='/cart' 
+          {/* Logged In User Accesible */}
+          <Route
+            path='/cart'
             element={
-            <UserValidationRoute user={user}>
+              <UserValidationRoute user={user}>
+                <Cart/>
+              </UserValidationRoute>
+            }
+          />
+          {/* Admin Accesible Routes */}
+          <Route  
+            path='/cart-panel' 
+            element={
+            <ProtectedRoute user={user}>
               <ShoppingCart user={user}/>
-            </UserValidationRoute>
+            </ProtectedRoute>
             }/>
           <Route 
-            path="/admin" 
+            path="/product-panel" 
             element={
               <ProtectedRoute user={user}>
                 <AdminPanel user={user} />
@@ -49,10 +66,18 @@ const App = () => {
             } 
           />
           <Route
-            path='/admin-sign-up'
+            path='/user-panel'
             element={
               <ProtectedRoute user={user}>
                 <AdminPanelSignUpPages user={user}/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/splash'
+            element={
+              <ProtectedRoute user={user}>
+                <Splash/>
               </ProtectedRoute>
             }
           />
