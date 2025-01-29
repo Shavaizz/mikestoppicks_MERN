@@ -21,6 +21,7 @@ const ProductPage = () => {
 						<h3 id="product-name">{product.title}</h3>
 						<img id="product-img" src={product.image} />
 						<p id="product-price">Price: ${product.price}</p>
+						<button type="button">Add To Cart</button>
 					</div>
 				))}
 			</div>

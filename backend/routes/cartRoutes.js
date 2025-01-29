@@ -89,6 +89,39 @@ router.put("/update", async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 });
+// Delete a specific product in the cart
+router.delete("/remove", async (req, res) => {
+    try {
+        const { userId, productId } = req.body;
+
+        if (!userId || !productId) {
+            return res.status(400).send({ message: "Provide all required fields" });
+        }
+
+        // Find the user's cart
+        const cart = await Cart.findOne({ userId });
+        if (!cart) {
+            return res.status(404).send({ message: "Cart not found" });
+        }
+
+        // Find the product in the cart's items array
+        const itemIndex = cart.items.findIndex((item) => item.productId.toString() === productId);
+        if (itemIndex === -1) {
+            return res.status(404).send({ message: "Product not found in cart" });
+        }
+
+        // Remove the product from the cart
+        cart.items.splice(itemIndex, 1);
+
+        // Save the updated cart
+        await cart.save();
+
+        res.status(200).send({ message: "Product removed from cart", cart });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: error.message });
+    }
+});
 
 // Clear Cart
 router.delete("/clear/:userId", async (req, res) => {

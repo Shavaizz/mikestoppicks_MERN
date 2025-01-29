@@ -1,30 +1,50 @@
 import express from "express";
+import { Cart } from "../models/CartModel.js";
 import { Order } from "../models/orderModel.js"; // Assuming you have an Order model
 const router = express.Router();
 
 // Create Order ( WORKING )
 router.post("/create", async (req, res) => {
     try {
-        const { userId, items, totalAmount, status } = req.body;
+        const { userId, totalAmount, status } = req.body;
 
-        if (!userId || !items || items.length === 0 || !totalAmount) {
+        if (!userId || !totalAmount) {
             return res.status(400).send({ message: "Provide all required fields" });
         }
 
+        // Fetch the user's cart and populate product details
+        const cart = await Cart.findOne({ userId }).populate("items.productId");
+        if (!cart || cart.items.length === 0) {
+            return res.status(404).send({ message: "Cart is empty or not found" });
+        }
+
+        // Map cart items to the structure expected in the Order model
+        const items = cart.items.map((item) => ({
+            productId: item.productId._id, // Ensure it's just the ObjectId
+            quantity: item.quantity,
+        }));
+
+        // Create the new order
         const newOrder = new Order({
             userId,
             items,
-            totalAmount,
+            totalAmount, // Pass from the request or calculate dynamically if needed
             status: status || "Pending", // Default status to "Pending"
         });
 
+        // Save the new order
         const savedOrder = await newOrder.save();
+
+        // Optionally clear the cart after creating the order
+        await Cart.findOneAndDelete({ userId });
+
         res.status(200).send({ message: "Order created successfully", order: savedOrder });
     } catch (error) {
         console.log(error);
         res.status(500).send({ message: error.message });
     }
 });
+
 
 // Get Orders for a User ( WORKING )
 router.get("/:userId", async (req, res) => {
