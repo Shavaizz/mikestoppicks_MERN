@@ -4,7 +4,17 @@ import jwt from 'jsonwebtoken';
 import { User } from '../models/userModel.js';
 
 const router = express.Router();
-
+router.get('/users-list', async (req,res)=>{
+  try {
+    const users = await User.find({});
+    return res.status(200).json({
+      user_count: users.length,
+      users: users
+    })
+  } catch (error) {
+    res.status(500).json({ message: "Error Fetching Users.", error });
+  }
+});
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
