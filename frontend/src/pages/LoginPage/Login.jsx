@@ -23,7 +23,7 @@ import './Login.css'
         if (user && token) {
           onLogin({ user, token });
           if (user.isAdmin) {
-            navigate('/admin');
+            navigate('/splash');
           } else {
             navigate('/');
           }        } else {

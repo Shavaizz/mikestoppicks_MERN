@@ -12,13 +12,15 @@ const Navbar = ({user, setUser}) => {
   <h2>MikesTopPicks</h2>
   <nav className='navbar-nav'>
     <ul id='navbar-ul-wrapper'>
+      {/* Not Logged In Navigation  */}
       <ul><Link to="/">Home</Link></ul>
       {!user &&<ul><Link to="/login">Login</Link></ul>}
       {!user && <ul><Link to="/register">Register</Link></ul>}
-      {user?.isAdmin && <ul><Link to="/product-panel">Admin Panel</Link></ul>}
-      {user?.isAdmin && <ul><Link to="/user-panel">User Creation</Link></ul>}
+      {/* User Navigation */}
       {user && <ul><Link to="/cart">Cart</Link></ul> }
       {user && <ul><button onClick={handleLogout}>Logout</button></ul>}
+      {/* Admin Navigation */}
+      {user?.isAdmin && <ul><Link to="/splash">Navigation Page</Link></ul>}
     </ul>
   </nav>
 </div>

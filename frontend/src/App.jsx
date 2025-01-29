@@ -10,7 +10,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/RegisterPage/RegisterPage';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import UserValidationRoute from './components/UserValidationRoute';
-import UserPanel from './pages/UserPanel/UserPanel';
 import OrderPanel from './pages/OrderPanel/OrderPanel'
 import Splash from './pages/Splash/Splash';
 import Cart from './pages/Cart/Cart'
@@ -57,6 +56,14 @@ const App = () => {
               <ShoppingCart user={user}/>
             </ProtectedRoute>
             }/>
+          <Route
+            path='order-panel'
+            element={
+              <ProtectedRoute user={user}>
+                <OrderPanel user={user}/>
+              </ProtectedRoute>
+            }
+          />
           <Route 
             path="/product-panel" 
             element={
@@ -81,6 +88,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+
         </Routes>
       </Router>
     </>
