@@ -73,10 +73,18 @@
     color: #555; /* Subtle text color */
   }
   
-  .fetch-button-admin-panel {
-    display: flex;
-    justify-content: center; /* Center the button horizontally */
-    margin-top: 20px; /* Add spacing from the top */
-    position: relative; /* Ensure it stays in its intended stacking context */
+  .fetch-button-admin-panel button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
   }
   
+  .fetch-button-admin-panel button:hover {
+    background-color: #0056b3;
+  }

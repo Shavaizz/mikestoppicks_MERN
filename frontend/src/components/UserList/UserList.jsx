@@ -1,24 +1,39 @@
-import React from 'react'
-
+import React, {useState, useEffect} from 'react'
+import './UserList.css'
+import axios from "axios"
 const UserList = () => {
+    const [users, setUsers] = useState([]);
+    const [userCount,setUserCount] = useState(0);
+    const fetchUsers = async ()=>{
+        try {
+            const response = await axios.get("http://localhost:3000/api/user/users-list")
+            setUsers(response.data.users);
+            setUserCount(response.data.user_count);
+        } catch (error) {
+            console.log("Error Occured:", error)
+        }
+    }
+    useEffect(() => {
+      fetchUsers()
+    }, [])
+    
   return (
     <>
-            <div className="User-list-del-panel">
-            {products.map((product) => (
-                <div key={product._id} className="User-item-for-del">
-                <img src={product.image} alt={product.title} className="User-img" />
-                <div className="User-details">
-                    <h3>{product.title}</h3>
-                    <p>Price: ${product.price}</p>
-                    <p>Created At: {new Date(product.createdAt).toLocaleString()}</p>
-                    <p>Id: {product._id}</p>
-                </div>
+        <h2>User List ({userCount})</h2>
+        <div className="User-list-del-panel">
+            {users.map((user) => (
+                <div key={user._id} className="User-item-for-del">
+                    <h3>Username: {user.username}</h3>
+                    <p>Email: {user.email}</p>
+                    <p>Nickname: {user.usernick}</p>
+                    <p>Admin: {user.userisadmin ? "Yes" : "No"}</p>
+                    <p>Created At: {new Date(user.createdAt).toLocaleString()}</p>
                 </div>
             ))}
-            </div>
-            <div className="fetch-button-admin-panel">
-                <button type="button" onClick={fetchProducts}>Fetch Products</button>
-            </div>
+        </div>
+        <div className="fetch-button-admin-panel">
+            <button type="button" onClick={fetchUsers}>Refresh List</button>
+        </div>
     </>
 )
 }
