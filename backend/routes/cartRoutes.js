@@ -1,8 +1,21 @@
 import express from "express";
 import { Cart } from "../models/CartModel.js"; // Assuming you've created a Cart model
 import { Product } from "../models/productModel.js"; // To validate product existence
-
+import { User } from '../models/userModel.js'
 const router = express.Router();
+
+router.get("/", async (req,res)=>{
+    try {
+        const carts = await Cart.find({});
+        const users = await User.find({})
+        return res.status(200).json({
+            count:carts.length,
+            carts:carts,
+        })
+    } catch (error) {
+        console.log("Error:" ,error)
+    }
+})
 
 // Add to Cart
 router.post("/add", async (req, res) => {

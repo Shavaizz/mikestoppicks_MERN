@@ -8,11 +8,11 @@ import AdminPanel from "./pages/AdminPanel/AdminPanel"
 import AdminPanelSignUpPages from './pages/AdminPanelSignUpPages/AdminPanelSignUpPages';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/RegisterPage/RegisterPage';
-import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart'; // Admin Route
 import UserValidationRoute from './components/UserValidationRoute';
 import OrderPanel from './pages/OrderPanel/OrderPanel'
 import Splash from './pages/Splash/Splash';
-import Cart from './pages/Cart/Cart'
+import Cart from './pages/Cart/Cart' // User Route
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
             path='/cart'
             element={
               <UserValidationRoute user={user}>
-                <Cart/>
+                <Cart user={user}/>
               </UserValidationRoute>
             }
           />
