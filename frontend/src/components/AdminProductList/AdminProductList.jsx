@@ -30,7 +30,6 @@ const AdminProductList = () => {
             <div className="fetch-button-admin-panel">
                 <button type="button" onClick={fetchProducts}>Fetch Products</button>
             </div>
-
     </>
   )
 }
