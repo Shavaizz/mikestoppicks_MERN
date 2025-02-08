@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import { User } from "../models/userModel"
+import { User } from "../models/userModel.js"
 const SECRET = process.env.JWT_SECRET;
 const authAdmin = async (req,res,next)=>{
     if (req.user && req.user.isAdmin){

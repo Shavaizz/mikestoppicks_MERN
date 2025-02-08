@@ -1,9 +1,45 @@
 import express from "express";
 import { Product } from "../models/productModel.js";
+import authAdmin from "../middleware/authenticateAdmin.js";
+import protect from "../middleware/authenticateToken.js";
 const router = express.Router();
 
+// USER ROUTES
+// Retrieve All Products
+router.get("/", async (req, res) => {
+	try {
+		const products = await Product.find({});
+		return res.status(200).json({
+			count: products.length,
+			data: products,
+		});
+	} catch (error) {
+		console.log(error);
+		return res.status(500).send({ message: error.message });
+	}
+});
+
+// Find Product By Name
+router.get("/find/:name", async (req, res) => {
+	try {
+		const { name } = req.params;
+		const result = await Product.find({
+			title: { $regex: name, $options: "i" },
+		});
+		if (result.length > 0) {
+			res.status(200).send({ product: result });
+		} else {
+			res.status(404).send({ message: "Product Not Found" });
+		}
+	} catch (error) {
+		console.log(error);
+		return res.status(500).send({ message: error.message });
+	}
+});
+
+// ADMIN ROUTES
 // Create Product
-router.post("/create", async (req, res) => {
+router.post("/create",protect,authAdmin, async (req, res) => {
 	try {
 		if (!req.body.title || !req.body.price) {
 			return res.status(400).send({
@@ -25,22 +61,8 @@ router.post("/create", async (req, res) => {
 	}
 });
 
-// Retrieve All Products
-router.get("/", async (req, res) => {
-	try {
-		const products = await Product.find({});
-		return res.status(200).json({
-			count: products.length,
-			data: products,
-		});
-	} catch (error) {
-		console.log(error);
-		return res.status(500).send({ message: error.message });
-	}
-});
-
 // Update Product
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id", protect,authAdmin,async (req, res) => {
 	try {
 		if (!req.body.title || !req.body.price) {
 			return res
@@ -65,7 +87,7 @@ router.put("/update/:id", async (req, res) => {
 });
 
 // Delete Product
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id",protect,authAdmin, async (req, res) => {
 	try {
 		const { id } = req.params;
 		const result = await Product.findByIdAndDelete(id, req.body);
@@ -85,22 +107,5 @@ router.delete("/delete/:id", async (req, res) => {
 	}
 });
 
-// Find Product By Name
-router.get("/find/:name", async (req, res) => {
-	try {
-		const { name } = req.params;
-		const result = await Product.find({
-			title: { $regex: name, $options: "i" },
-		});
-		if (result.length > 0) {
-			res.status(200).send({ product: result });
-		} else {
-			res.status(404).send({ message: "Product Not Found" });
-		}
-	} catch (error) {
-		console.log(error);
-		return res.status(500).send({ message: error.message });
-	}
-});
 
 export default router;

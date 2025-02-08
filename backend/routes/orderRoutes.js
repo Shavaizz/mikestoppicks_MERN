@@ -1,9 +1,11 @@
 import express from "express";
 import { Cart } from "../models/CartModel.js";
 import { Order } from "../models/orderModel.js";
+import authAdmin from "../middleware/authenticateAdmin.js";
+import protect from "../middleware/authenticateToken.js";
 const router = express.Router();
 
-router.post("/create", async (req, res) => {
+router.post("/create",protect, async (req, res) => {
 	try {
 		const { userId, totalAmount, status } = req.body;
 		if (!userId || !totalAmount) {
@@ -14,14 +16,14 @@ router.post("/create", async (req, res) => {
 			return res.status(404).send({ message: "Cart is empty or not found" });
 		}
 		const items = cart.items.map((item) => ({
-			productId: item.productId._id, // Ensure it's just the ObjectId
+			productId: item.productId._id, 
 			quantity: item.quantity,
 		}));
 		const newOrder = new Order({
 			userId,
 			items,
-			totalAmount, // Pass from the request or calculate dynamically if needed
-			status: status || "Pending", // Default status to "Pending"
+			totalAmount, 
+			status: status || "Pending", 
 		});
 		const savedOrder = await newOrder.save();
 		await Cart.findOneAndDelete({ userId });
@@ -33,7 +35,7 @@ router.post("/create", async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-router.get("/:userId", async (req, res) => {
+router.get("/:userId", protect,async (req, res) => {
 	try {
 		const { userId } = req.params;
 		const orders = await Order.find({ userId }).populate("items.productId");
@@ -46,7 +48,7 @@ router.get("/:userId", async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-router.get("/", async (req, res) => {
+router.get("/", protect ,async (req, res) => {
 	try {
 		const orders = await Order.find({});
 		return res.status(200).json({
@@ -59,7 +61,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
-router.get("/find/:status", async (req, res) => {
+router.get("/find/:status",protect, async (req, res) => {
 	try {
 		const { status } = req.params;
 		const orders = await Order.find({ status });
@@ -72,7 +74,7 @@ router.get("/find/:status", async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-router.put("/update/:id", async (req, res) => {
+router.put("/update/:id", protect,authAdmin,async (req, res) => {
 	try {
 		const { id } = req.params;
 		const { status } = req.body;
@@ -92,7 +94,7 @@ router.put("/update/:id", async (req, res) => {
 	}
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id",protect, async (req, res) => {
 	try {
 		const { id } = req.params;
 		const order = await Order.findByIdAndDelete(id);

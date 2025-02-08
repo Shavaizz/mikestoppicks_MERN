@@ -5,7 +5,8 @@ import { User } from "../models/userModel.js";
 import protect from "../middleware/authenticateToken.js";
 import authAdmin from "../middleware/authenticateAdmin.js";
 const router = express.Router();
-router.get("/users-list", async (req, res) => {
+
+router.get("/users-list",protect,authAdmin,async (req, res) => {
 	try {
 		const users = await User.find({});
 		return res.status(200).json({
@@ -29,8 +30,6 @@ router.post("/login", async (req, res) => {
 			res.status(200).json({
 				user: {
 					id: user._id,
-					email: user.email,
-					username: user.username,
 					isAdmin: user.userisadmin,
 				},
 				token,

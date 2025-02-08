@@ -3,9 +3,11 @@ import { Cart } from "../models/CartModel.js";
 import { Product } from "../models/productModel.js";
 import { User } from "../models/userModel.js";
 import protect from "../middleware/authenticateToken.js";
+import authAdmin from "../middleware/authenticateAdmin.js";
 const router = express.Router();
-
-router.get("/",protect, async (req, res) => {
+// Get all current carts. Need to be admin to interact 
+// ADMIN ROUTE
+router.get("/",protect,authAdmin, async (req, res) => {
 	try {
 		const carts = await Cart.find({});
 		const users = await User.find({});
@@ -17,7 +19,8 @@ router.get("/",protect, async (req, res) => {
 		console.log("Error:", error);
 	}
 });
-
+// Add to cart route, only need to be admin
+// ADMIN ROUTE
 router.post("/add",protect, async (req, res) => {
 	try {
 		const { userId, productId, quantity } = req.body;
@@ -50,7 +53,8 @@ router.post("/add",protect, async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-
+// Get cart for specific user
+// USER ROUTE
 router.get("/:userId",protect, async (req, res) => {
 	try {
 		const { userId } = req.params;
@@ -66,8 +70,8 @@ router.get("/:userId",protect, async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-
-router.put("/update", async (req, res) => {
+// USER ROUTE
+router.put("/update", protect, async (req, res) => {
 	try {
 		const { userId, productId, quantity } = req.body;
 
@@ -96,7 +100,10 @@ router.put("/update", async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-router.delete("/remove", async (req, res) => {
+
+// Remove product from cart
+// USER ROUTE
+router.delete("/remove",protect, async (req, res) => {
 	try {
 		const { userId, productId } = req.body;
 
@@ -121,7 +128,10 @@ router.delete("/remove", async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-router.delete("/clear/:userId", async (req, res) => {
+
+// Clear out cart
+// User Route
+router.delete("/clear/:userId",protect, async (req, res) => {
 	try {
 		const { userId } = req.params;
 		const cart = await Cart.findOneAndDelete({ userId });
