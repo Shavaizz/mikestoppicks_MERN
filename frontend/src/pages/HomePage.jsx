@@ -8,7 +8,7 @@ const HomePage = ({user}) => {
     <>  
         <UserProfile user={user}/>
         <SearchBar/>
-        <ProductPage/>
+        <ProductPage user={user}/>
     </>
   )
 }

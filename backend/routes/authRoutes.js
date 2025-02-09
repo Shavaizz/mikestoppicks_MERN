@@ -31,6 +31,8 @@ router.post("/login", async (req, res) => {
 				user: {
 					id: user._id,
 					isAdmin: user.userisadmin,
+					username: user.username,
+					usernick: user.usernick
 				},
 				token,
 			});

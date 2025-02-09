@@ -27,8 +27,6 @@ import './Login.css'
           } else {
             navigate('/');
           }        } else {
-          console.log("user:", user);
-          console.log("token:", token);
           throw new Error('Invalid server response');
         }
       } catch (err) {

@@ -20,7 +20,7 @@ router.get("/",protect,authAdmin, async (req, res) => {
 	}
 });
 // Add to cart route, only need to be admin
-// ADMIN ROUTE
+// USER ROUTE
 router.post("/add",protect, async (req, res) => {
 	try {
 		const { userId, productId, quantity } = req.body;

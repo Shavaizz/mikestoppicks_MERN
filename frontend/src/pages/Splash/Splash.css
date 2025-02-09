@@ -19,11 +19,18 @@
     text-decoration: none;
     outline: none;
     border: none;
-}
-.button-for-link {
-    text-decoration: none;
-    outline: none;
-    border: none;
     color: #fff;
-    
+}
+.button-for-link{
+    text-decoration: none;
+    outline: 2px solid #4084ce;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+button.button-for-link{
+    background-color: #007BFF;
+    font-size: 1.1rem;
 }
