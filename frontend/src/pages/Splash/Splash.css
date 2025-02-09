@@ -1,0 +1,29 @@
+#navbar-heading{
+    margin-top: 5%;
+    text-align: center;
+    font-size: 44px;
+}
+#button-wrapper{
+    margin-top: 5%;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #2B2C2D;
+    margin-left: 33%;
+    margin-right: 33%;
+    padding: 2%;
+    border-radius: 10px;
+}
+.button-for-link a{
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+.button-for-link {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    
+}
