@@ -1,44 +1,35 @@
-import React,{useState, useEffect} from 'react'
-import api from '../../axiosinstance';
+import React from "react";
+import CartItems from "../../components/CartItems/CartItems";
+import api from "../../axiosinstance";
 const Cart = (user) => {
-  const [userId, setUserId] = useState(null);
-  const [cartObjects, setCartObjects] = useState([]);
-  useEffect(() => {
-    const fetchCartObjects = async ()=>{
-      try {
-        const response = await api.get(`http://localhost:3000/api/cart/${user.user?.id}`);
-        setCartObjects(response.data.items);
-      } catch (error) {
-        console.error('Error fetching cart objects:', error);
-      }
-    }
-    fetchCartObjects();
-  }, []);
-  
-
-  return (
-    <>
-      <div className="cart-wrapper">
-        Welcome To Your Cart, {user?.username}
+	const clearCart = () => {
+		console.log("increase product count");
+	};
+  const decreaseProdCount = () => {
+		try {
+      console.log("decrease prod count")
+		} catch (error) {
+			console.log("Error Decreasing Product Count");
+		}
+	};
+	const increaseProdCount = () => {
+		console.log("increase product count");
+	};
+	return (
+    
+		<>
+			<div className="cart-wrapper">
+				Welcome To Your Cart, {user.user?.user}
+			</div>
+      <div className="cart-item-wrapper">
+      <CartItems user={user}/>
       </div>
-      <div className="cart-body">
-        {cartObjects.length > 0 ? (
-          cartObjects.map((item) => (
-            <div key={item.productId._id} className="cart-item">
-              <img src={item.productId.image} alt={item.productId.title} className="cart-item-image" />
-              <div className="cart-item-details">
-                <h3>{item.productId.title}</h3>
-                <p>Price: ${item.productId.price}</p>
-                <p>Quantity: {item.quantity}</p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>Your cart is empty.</p>
-        )}
-      </div>
-    </>
-  )
-}
+			<div className="cart-page-actions">
+				<button type="button">Clear Cart</button>
+        <button type="button">Place Order</button>
+			</div>
+		</>
+	);
+};
 
-export default Cart
+export default Cart;
