@@ -1,7 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './Navbar.css'
 const Navbar = ({user, setUser}) => {
+  const navigate = useNavigate(); // Hook to navigate programmatically
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token
     setUser(null); // Reset user state

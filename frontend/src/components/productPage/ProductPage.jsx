@@ -32,7 +32,11 @@ const ProductPage = (user) => {
 						<h3 id="product-name">{product.title}</h3>
 						<img id="product-img" src={product.image} />
 						<p id="product-price">Price: ${product.price}</p>
-						<button type="button" onClick={()=>{addToCart(product._id)}}>Add To Cart</button>
+            {user.user?.id ? (
+            <button type="button" onClick={() => addToCart(product._id)}>Add To Cart</button>
+            ) : (
+				<p>Shop</p>
+            )}
 					</div>
 				))}
 			</div>
