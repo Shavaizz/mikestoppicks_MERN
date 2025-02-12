@@ -60,10 +60,9 @@ router.get("/:userId",protect, async (req, res) => {
 		const { userId } = req.params;
 
 		const cart = await Cart.findOne({ userId }).populate("items.productId");
-		if (!cart) {
+		if (!cart || cart.items.length === 0) {
 			return res.status(404).send({ message: "Cart not found" });
 		}
-
 		res.status(200).send(cart);
 	} catch (error) {
 		console.log(error);

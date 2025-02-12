@@ -4,7 +4,6 @@ import "./ProductPage.css";
 import api from "../../axiosinstance";
 const ProductPage = (user) => {
 	const [products, setProducts] = useState([]);
-	const [productId, setProductId] = useState(null);
 	const [quantity, setQuantity] = useState(1);
 	const [successMessage, setsuccessMessage] = useState("");
 	useEffect(() => {
@@ -16,17 +15,19 @@ const ProductPage = (user) => {
 		fetchProducts();
 	}, []);
 	const addToCart = (id) => {
-		setProductId(id);
 		const userIdMan = user.user?.id;
-		const request = api.post("http://localhost:3000/api/cart/add", {
+		api.post("http://localhost:3000/api/cart/add", {
 			userId: userIdMan,
-			productId: productId,
+			productId: id,
 			quantity: quantity,
-		});
-		setsuccessMessage("Product Added");
-		setTimeout(() => {
-			setsuccessMessage("");
-		}, 5000);
+		})
+		.then(()=>{
+			setsuccessMessage("Product Added");
+			setTimeout(() => {
+				setsuccessMessage("");
+			}, 5000);
+		})
+		.catch(error=>console.error("Error adding to cart: ",error))
 	};
 	return (
 		<>

@@ -9,7 +9,6 @@ const CartItems = ({ user }) => {
 				const response = await api.get(
 					`http://localhost:3000/api/cart/${user.user?.id}`
 				);
-				console.log(user?.user);
 				setCartObjects(response.data.items);
 			} catch (error) {
 				console.error("Error fetching cart objects:", error);

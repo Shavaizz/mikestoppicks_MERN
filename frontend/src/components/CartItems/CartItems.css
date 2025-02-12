@@ -1,8 +1,6 @@
 .cart-body{
     display: flex;
     flex-direction: column;
-    margin-left:30%;
-    margin-right:30%;
 }
 .cart-item{
     display: flex;
@@ -12,7 +10,7 @@
     border-radius: 5px;
     background-color: #2B2C2D;
     border: 2px solid rgba(105, 104, 104, 0.582);
-    max-width: 700px;
+    max-width: 500px;
 }
 .cart-item-details {
     display: flex;
@@ -49,9 +47,8 @@
 }
 .cart-qty {
     margin-left: 10px;
-  }
-  
-  .cart-price {
+}
+.cart-price {
     margin-left: auto;
     font-weight: bold;
-  }
+}

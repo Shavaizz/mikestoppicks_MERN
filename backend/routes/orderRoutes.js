@@ -7,26 +7,30 @@ const router = express.Router();
 
 router.post("/create",protect, async (req, res) => {
 	try {
-		const { userId, totalAmount, status } = req.body;
-		if (!userId || !totalAmount) {
-			return res.status(400).send({ message: "Provide all required fields" });
+		const { user, status } = req.body;
+		if (!user) {
+			return res.status(400).send({ message: "User ID is required" });
 		}
-		const cart = await Cart.findOne({ userId }).populate("items.productId");
-		if (!cart || cart.items.length === 0) {
+		const cart = await Cart.findOne({ userId: user }).populate("items.productId");
+		if (!cart) {
+			console.log("Cart Data:", cart);
 			return res.status(404).send({ message: "Cart is empty or not found" });
 		}
+		const totalAmount = cart.items.reduce((sum, item) => {
+			return sum + item.productId.price * item.quantity; // Ensure 'price' is in the Product model
+		}, 0);
 		const items = cart.items.map((item) => ({
 			productId: item.productId._id, 
 			quantity: item.quantity,
 		}));
 		const newOrder = new Order({
-			userId,
+			user,
 			items,
 			totalAmount, 
 			status: status || "Pending", 
 		});
 		const savedOrder = await newOrder.save();
-		await Cart.findOneAndDelete({ userId });
+		await Cart.findOneAndDelete({ userId: user });
 		res
 			.status(200)
 			.send({ message: "Order created successfully", order: savedOrder });

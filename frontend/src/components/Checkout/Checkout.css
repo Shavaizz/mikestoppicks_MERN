@@ -1,0 +1,11 @@
+.checkout-wrapper{
+    background-color: #2B2C2D;
+    border: 2px solid rgba(105, 104, 104, 0.582);
+    max-width: 400px;
+}
+#checkout-heading{
+    padding: 5%;
+}
+.checkout-details-wrapper{
+    padding: 5%;
+}
