@@ -2,17 +2,17 @@ import React, {useState} from 'react'
 import HomePage from './pages/HomePage'
 import SearchResultPage from './pages/searchResultPage/SearchResultPage';
 import Navbar from './components/Navbar/Navbar'
-import Login from "./pages/LoginPage/Login"
-import AdminPanel from "./pages/AdminPanel/AdminPanel"
-import AdminPanelSignUpPages from './pages/AdminPanelSignUpPages/AdminPanelSignUpPages';
-import ProtectedRoute from './components/ProtectedRoute';
-import Register from './pages/RegisterPage/RegisterPage';
+import UserValidationRoute from './components/UserValidationRoute'; // Protected Route 
+import ProtectedRoute from './components/ProtectedRoute'; // Protected Routes, checks if admin
+import Login from "./pages/LoginPage/Login" // Accessible Routes checks if logged in 
+import AdminPanel from "./pages/AdminPanel/AdminPanel" // Admin 
+import AdminPanelSignUpPages from './pages/AdminPanelSignUpPages/AdminPanelSignUpPages'; // Admin
+import Register from './pages/RegisterPage/RegisterPage'; // Accesible Routes
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart'; // Admin Route
-import UserValidationRoute from './components/UserValidationRoute';
-import OrderPanel from './pages/OrderPanel/OrderPanel'
-import Splash from './pages/Splash/Splash';
+import OrderPanel from './pages/OrderPanel/OrderPanel' // Admin Route
+import Splash from './pages/Splash/Splash'; // Admin Route
 import Cart from './pages/Cart/Cart' // User Route
-
+import UserOrderPanel from './pages/UserOrderPanel/UserOrderPanel'; // User Route
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 const App = () => {
   const [user, setUser] = useState(null);
@@ -47,6 +47,11 @@ const App = () => {
               </UserValidationRoute>
             }
           />
+        <Route path="/orders" element={
+            <UserValidationRoute user={user}>
+                <UserOrderPanel/>
+            </UserValidationRoute>
+          }/>
           {/* Admin Accesible Routes */}
           <Route  
             path='/cart-panel' 

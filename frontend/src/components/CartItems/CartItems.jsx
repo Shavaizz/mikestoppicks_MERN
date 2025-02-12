@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import api from "../../axiosinstance";
 import "./CartItems.css";
-const CartItems = ({ user }) => {
+const CartItems = ({ user,setTotalPrice,setTotalItemCount }) => {
 	const [cartObjects, setCartObjects] = useState([]);
+	const calculateTotal = (items)=>{
+		const totalPrice = items.reduce((acc,item)=> acc + item.productId.price*item.quantity, 0);
+		const totalQuantity = items.reduce((acc,item)=>acc + item.quantity,0)
+		setTotalPrice(totalPrice)
+		setTotalItemCount(totalQuantity)
+	};
 	useEffect(() => {
 		const fetchCartObjects = async () => {
 			try {
@@ -10,12 +16,14 @@ const CartItems = ({ user }) => {
 					`http://localhost:3000/api/cart/${user.user?.id}`
 				);
 				setCartObjects(response.data.items);
+				calculateTotal(response.data.items);
 			} catch (error) {
 				console.error("Error fetching cart objects:", error);
 			}
 		};
 		fetchCartObjects();
-	}, []);
+	}, [user.user]);
+
 	return (
 		<>
 			<div className="cart-body">
