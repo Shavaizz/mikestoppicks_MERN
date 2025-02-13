@@ -1,0 +1,12 @@
+.order-wrapper{
+    margin: 5%;
+}
+.order-card{
+    background-color: #2B2C2D;
+    border: 2px solid rgba(105, 104, 104, 0.582);
+    padding:1%;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    margin:1%;
+}

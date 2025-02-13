@@ -49,7 +49,7 @@ const App = () => {
           />
         <Route path="/orders" element={
             <UserValidationRoute user={user}>
-                <UserOrderPanel/>
+                <UserOrderPanel user={user}/>
             </UserValidationRoute>
           }/>
           {/* Admin Accesible Routes */}

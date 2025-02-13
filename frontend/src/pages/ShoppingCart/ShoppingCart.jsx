@@ -4,8 +4,9 @@ const ShoppingCart = ({user}) => {
   setUsername(user.usernick)
     return (
     <>
-        <h2 id='welcome-user-message'>Hello, {username}</h2>
-          
+      <div className="admin-cart-overview-wrapper">
+        
+      </div>
     </>
 )
 }

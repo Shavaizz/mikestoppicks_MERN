@@ -1,16 +1,18 @@
-import React,{useState, useEffect} from 'react'
-import {Link,useNavigate } from "react-router-dom"
+import React from 'react'
+import { useNavigate } from "react-router-dom"
 import './Checkout.css'
 import api from '../../axiosinstance'
 const Checkout = ({ user, totalPrice, totalQuantity }) => {
-  
+  const navigate = useNavigate();
+
   const orderPlacer = ()=>{
-    return api.post("http://localhost:3000/api/order/create",{
+    api.post("http://localhost:3000/api/order/create",{
       user:user.user?.id
     });
+    navigate("/orders");
   }
   const removeCartItems = ()=>{
-    return api.delete(`http://localhost:3000/api/cart/clear/${user.user?.id}`)
+    api.delete(`http://localhost:3000/api/cart/clear/${user.user?.id}`)
   }
   return (
     <>
