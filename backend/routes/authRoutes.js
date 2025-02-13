@@ -6,7 +6,7 @@ import protect from "../middleware/authenticateToken.js";
 import authAdmin from "../middleware/authenticateAdmin.js";
 const router = express.Router();
 
-router.get("/users-list",protect,authAdmin,async (req, res) => {
+router.get("/users-list", protect , authAdmin , async (req, res) => {
 	try {
 		const users = await User.find({});
 		return res.status(200).json({

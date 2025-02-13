@@ -1,12 +1,11 @@
 import React,{useState} from 'react'
 const ShoppingCart = ({user}) => {
-  const [username, setUsername] = useState("")
-  setUsername(user.usernick)
-    return (
+  // console.log(user.username)
+  return (
     <>
-      <div className="admin-cart-overview-wrapper">
-        
-      </div>
+    <div className="shopping-cart-panel">
+      <h2></h2>
+    </div>
     </>
 )
 }

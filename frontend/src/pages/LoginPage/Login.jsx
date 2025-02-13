@@ -24,6 +24,7 @@ import './Login.css'
           onLogin({ user, token });
           if (user.isAdmin) {
             navigate('/splash');
+            console.log(token)
           } else {
             navigate('/');
           }        } else {
