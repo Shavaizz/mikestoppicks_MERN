@@ -45,7 +45,7 @@ const UserOrderPanel = ({user}) => {
             <ul>
               {order.items.map((item) => (
                   <li key={item._id} className='order-details'>
-                  <strong>{item?.productId?.title}</strong> - {item?.productId?.price}
+                  <strong>{item?.productId?.title}</strong> - Price: ${item?.productId?.price}
                 </li>
               ))}
             </ul>

@@ -1,24 +1,9 @@
 import express from "express";
 import { Cart } from "../models/CartModel.js";
 import { Product } from "../models/productModel.js";
-import { User } from "../models/userModel.js";
 import protect from "../middleware/authenticateToken.js";
-import authAdmin from "../middleware/authenticateAdmin.js";
 const router = express.Router();
-// Get all current carts. Need to be admin to interact 
-// ADMIN ROUTE
-router.get("/",protect,authAdmin, async (req, res) => {
-	try {
-		const carts = await Cart.find({});
-		const users = await User.find({});
-		return res.status(200).json({
-			count: carts.length,
-			carts: carts,
-		});
-	} catch (error) {
-		console.log("Error:", error);
-	}
-});
+
 // Add to cart route, only need to be admin
 // USER ROUTE
 router.post("/add",protect, async (req, res) => {
