@@ -88,3 +88,6 @@
 .fetch-button-admin-panel button:hover {
   background-color: #0056b3;
 }
+.user-list-wrapper h2{
+  text-align: center;
+}

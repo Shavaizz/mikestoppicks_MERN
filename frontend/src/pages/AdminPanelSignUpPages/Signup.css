@@ -1,0 +1,5 @@
+.multi-user-sign-up-wrapper{
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1%;
+}

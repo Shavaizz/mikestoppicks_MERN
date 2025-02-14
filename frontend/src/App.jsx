@@ -8,7 +8,6 @@ import Login from "./pages/LoginPage/Login" // Accessible Routes checks if logge
 import AdminPanel from "./pages/AdminPanel/AdminPanel" // Admin 
 import AdminPanelSignUpPages from './pages/AdminPanelSignUpPages/AdminPanelSignUpPages'; // Admin
 import Register from './pages/RegisterPage/RegisterPage'; // Accesible Routes
-import ShoppingCart from './pages/ShoppingCart/ShoppingCart'; // Admin Route
 import OrderPanel from './pages/OrderPanel/OrderPanel' // Admin Route
 import Splash from './pages/Splash/Splash'; // Admin Route
 import Cart from './pages/Cart/Cart' // User Route
@@ -53,13 +52,6 @@ const App = () => {
             </UserValidationRoute>
           }/>
           {/* Admin Accesible Routes */}
-          <Route  
-            path='/cart-panel' 
-            element={
-            <ProtectedRoute user={user}>
-              <ShoppingCart user={user}/>
-            </ProtectedRoute>
-            }/>
           <Route
             path='order-panel'
             element={

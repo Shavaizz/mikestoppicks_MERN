@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import axios from 'axios'
+import api from '../../axiosinstance'
+import './AdminSignUp.css'
 const NewAdminSignUp = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
@@ -9,7 +10,7 @@ const NewAdminSignUp = () => {
   const[completionMessage, setCompletionMessage] = useState("")
   const makeNewUser = async (e) =>{
     e.preventDefault();
-    const request = await axios.post('http://localhost:3000/api/user/register',{
+    const request = await api.post('http://localhost:3000/api/user/register',{
       username:username,
       email:email,
       password: password,

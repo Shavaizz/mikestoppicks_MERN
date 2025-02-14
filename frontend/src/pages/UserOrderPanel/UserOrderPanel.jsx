@@ -33,10 +33,10 @@ const UserOrderPanel = ({user}) => {
   }
   return (
     <>
-      <div className="order-wrapper">
+      <div className="order-wrapper-user">
         <h2 id="cart-heading">Welcome To Your Cart</h2>
         {orders.map((order) => (
-          <div key={order._id} className="order-card">
+          <div key={order._id} className="order-card-user">
             <h2>Order ID: {order._id}</h2>
             <p id='order-status'><strong>Status:</strong> {order.status}</p>
             <p id='order-total'><strong>Total:</strong> ${order.totalAmount}</p>

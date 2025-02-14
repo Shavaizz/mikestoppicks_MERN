@@ -19,20 +19,22 @@ const UserList = () => {
     
     return (
     <>
-        <h2>User List ({userCount})</h2>
-        <div className="User-list-del-panel">
-            {users.map((user) => (
-                <div key={user._id} className="User-item-for-del">
-                    <h3>Username: {user.username}</h3>
-                    <p>Email: {user.email}</p>
-                    <p>Nickname: {user.usernick}</p>
-                    <p>Admin: {user.userisadmin ? "Yes" : "No"}</p>
-                    <p>Created At: {new Date(user.createdAt).toLocaleString()}</p>
-                </div>
-            ))}
-        </div>
-        <div className="fetch-button-admin-panel">
-            <button type="button" onClick={fetchUsers}>Refresh List</button>
+    <div className="user-list-wrapper">
+            <h2>User List: {userCount}</h2>
+            <div className="User-list-del-panel">
+                {users.map((user) => (
+                    <div key={user._id} className="User-item-for-del">
+                        <h3>Username: {user.username}</h3>
+                        <p>Email: {user.email}</p>
+                        <p>Nickname: {user.usernick}</p>
+                        <p>Admin: {user.userisadmin ? "Yes" : "No"}</p>
+                        <p>Created At: {new Date(user.createdAt).toLocaleString()}</p>
+                    </div>
+                ))}
+            </div>
+            <div className="fetch-button-admin-panel">
+                <button type="button" onClick={fetchUsers}>Refresh List</button>
+            </div>
         </div>
     </>
 )

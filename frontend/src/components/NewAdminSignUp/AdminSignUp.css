@@ -1,0 +1,23 @@
+.admin-creation-form-wrapper{
+    margin: 1%;
+    background-color: #2B2C2D;
+    border: 2px solid rgba(105, 104, 104, 0.582);
+    padding:1%;
+    max-width: fit-content;
+}
+.admin-creation-form{
+    display: flex;
+    flex-direction: column;
+}
+.admin-creation-form button{
+    margin-top: 5%;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}

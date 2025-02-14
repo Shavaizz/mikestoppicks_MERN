@@ -1,0 +1,37 @@
+.order-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.order-card-admin{
+    background-color: #2B2C2D;
+    border: 2px solid rgba(105, 104, 104, 0.582);
+    padding:1%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin:1%;
+}
+.order-update-form{
+    margin-top: 20%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    background-color:#2B2C2D;
+    border: 2px solid rgba(105, 104, 104, 0.582);
+    width: 500px;
+}
+#submit-button-order-panel{
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    max-width: fit-content;
+    margin-top: 5%;
+    margin-left: 30%;
+}

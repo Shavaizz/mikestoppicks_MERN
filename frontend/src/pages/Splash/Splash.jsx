@@ -9,7 +9,6 @@ const Splash = () => {
             <div id="button-wrapper">
                 <button className="button-for-link" type="button"><Link to='/user-panel'>User Panel</Link></button>
                 <button className="button-for-link" type="button"><Link to='/product-panel'>Product Panel</Link></button>
-                <button className="button-for-link" type="button"><Link to='/cart-panel'>Cart Panel</Link></button>
                 <button className="button-for-link" type="button"><Link to='/order-panel'>Order Panel</Link></button>
             </div>
         </div>

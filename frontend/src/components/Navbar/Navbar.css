@@ -20,6 +20,17 @@
     color: #F1F0EA;
     font-weight: bold;
 }
-h2{
+.navbar-wrapper h2{
     margin: 0px;
+}
+.navbar-wrapper button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }

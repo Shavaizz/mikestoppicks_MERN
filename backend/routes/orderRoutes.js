@@ -75,21 +75,10 @@ router.delete("/delete/:id",protect, async (req, res) => {
 // Admin Route ( Get All Orders)
 router.get("/", protect ,async (req, res) => {
 	try {
-		const orders = await Order.find({});
-		return res.status(200).json({
-			count: orders.length,
-			orders: orders,
+		const orders = await Order.find({}).populate({
+			path:"items.productId",
+			select:"title price"
 		});
-	} catch (error) {
-		console.log(error);
-		res.status(500).send({ message: error.message });
-	}
-});
-// Admin Route (Find Status For Specific Order)
-router.get("/find/:status",protect, authAdmin, async (req, res) => {
-	try {
-		const { status } = req.params;
-		const orders = await Order.find({ status });
 		return res.status(200).json({
 			count: orders.length,
 			orders: orders,

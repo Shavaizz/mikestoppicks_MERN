@@ -10,7 +10,7 @@ const Navbar = ({user, setUser}) => {
   };
   return (
 <div className='navbar-wrapper'> 
-  <h2>MikesTopPicks</h2>
+  <h2 id='mike-heading'>MikesTopPicks</h2>
   <nav className='navbar-nav'>
     <ul id='navbar-ul-wrapper'>
       {/* Not Logged In Navigation  */}
@@ -20,9 +20,9 @@ const Navbar = ({user, setUser}) => {
       {/* Admin Navigation */}
       {user?.isAdmin && <ul><Link to="/splash">Admin Panel</Link></ul>}
       {/* User Navigation */}
-      {user && <ul><Link to="/cart">Cart</Link></ul> }
-      {user && <ul><Link to="/orders">Orders</Link></ul> }
-      {user && <ul><button onClick={handleLogout}>Logout</button></ul>}
+      {user && !user.isAdmin && <ul><Link to="/cart">Cart</Link></ul> }
+      {user && !user.isAdmin && <ul><Link to="/orders">Orders</Link></ul> }
+      {user && <ul><button id="logout-button" onClick={handleLogout}>Logout</button></ul>}
     </ul>
   </nav>
 </div>
