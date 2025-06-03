@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Add to cart route, only need to be admin
 // USER ROUTE
-router.post("/add",protect, async (req, res) => {
+router.post("/add", protect, async (req, res) => {
 	try {
 		const { userId, productId, quantity } = req.body;
 
@@ -40,7 +40,7 @@ router.post("/add",protect, async (req, res) => {
 });
 // Get cart for specific user
 // USER ROUTE
-router.get("/:userId",protect, async (req, res) => {
+router.get("/:userId", protect, async (req, res) => {
 	try {
 		const { userId } = req.params;
 
@@ -87,7 +87,7 @@ router.put("/update", protect, async (req, res) => {
 
 // Remove product from cart
 // USER ROUTE
-router.delete("/remove",protect, async (req, res) => {
+router.delete("/remove", protect, async (req, res) => {
 	try {
 		const { userId, productId } = req.body;
 
@@ -115,7 +115,7 @@ router.delete("/remove",protect, async (req, res) => {
 
 // Clear out cart
 // User Route
-router.delete("/clear/:userId",protect, async (req, res) => {
+router.delete("/clear/:userId", protect, async (req, res) => {
 	try {
 		const { userId } = req.params;
 		const cart = await Cart.findOneAndDelete({ userId });

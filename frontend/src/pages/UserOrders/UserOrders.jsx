@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const UserOrders = () => {
-  return (
-    <div>UserOrders</div>
-  )
-}
+	return <div>UserOrders</div>;
+};
 
-export default UserOrders
+export default UserOrders;

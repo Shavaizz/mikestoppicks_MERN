@@ -6,13 +6,15 @@ import protect from "../middleware/authenticateToken.js";
 const router = express.Router();
 
 // User Route
-router.post("/create",protect, async (req, res) => {
+router.post("/create", protect, async (req, res) => {
 	try {
 		const { user, status } = req.body;
 		if (!user) {
 			return res.status(400).send({ message: "User ID is required" });
 		}
-		const cart = await Cart.findOne({ userId: user }).populate("items.productId");
+		const cart = await Cart.findOne({ userId: user }).populate(
+			"items.productId"
+		);
 		if (!cart) {
 			console.log("Cart Data:", cart);
 			return res.status(404).send({ message: "Cart is empty or not found" });
@@ -21,14 +23,14 @@ router.post("/create",protect, async (req, res) => {
 			return sum + item.productId.price * item.quantity; // Ensure 'price' is in the Product model
 		}, 0);
 		const items = cart.items.map((item) => ({
-			productId: item.productId._id, 
+			productId: item.productId._id,
 			quantity: item.quantity,
 		}));
 		const newOrder = new Order({
 			user,
 			items,
-			totalAmount, 
-			status: status || "Pending", 
+			totalAmount,
+			status: status || "Pending",
 		});
 		const savedOrder = await newOrder.save();
 		await Cart.findOneAndDelete({ userId: user });
@@ -41,12 +43,12 @@ router.post("/create",protect, async (req, res) => {
 	}
 });
 // User Route
-router.get("/:userId", protect,async (req, res) => {
+router.get("/:userId", protect, async (req, res) => {
 	try {
 		const { userId } = req.params;
-		const orders = await Order.find({ user:userId }).populate({
-			path:"items.productId",
-			select:"title price "
+		const orders = await Order.find({ user: userId }).populate({
+			path: "items.productId",
+			select: "title price ",
 		});
 		if (!orders || orders.length === 0) {
 			return res.status(404).send({ message: "No orders found for this user" });
@@ -58,7 +60,7 @@ router.get("/:userId", protect,async (req, res) => {
 	}
 });
 // User Route
-router.delete("/delete/:id",protect, async (req, res) => {
+router.delete("/delete/:id", protect, async (req, res) => {
 	try {
 		const { id } = req.params;
 		const order = await Order.findByIdAndDelete(id);
@@ -73,11 +75,11 @@ router.delete("/delete/:id",protect, async (req, res) => {
 });
 
 // Admin Route ( Get All Orders)
-router.get("/", protect ,async (req, res) => {
+router.get("/", protect, async (req, res) => {
 	try {
 		const orders = await Order.find({}).populate({
-			path:"items.productId",
-			select:"title price"
+			path: "items.productId",
+			select: "title price",
 		});
 		return res.status(200).json({
 			count: orders.length,
@@ -89,7 +91,7 @@ router.get("/", protect ,async (req, res) => {
 	}
 });
 // Admin Route (Update status of order)
-router.put("/update/:id", protect,authAdmin,async (req, res) => {
+router.put("/update/:id", protect, authAdmin, async (req, res) => {
 	try {
 		const { id } = req.params;
 		const { status } = req.body;
@@ -108,6 +110,5 @@ router.put("/update/:id", protect,authAdmin,async (req, res) => {
 		res.status(500).send({ message: error.message });
 	}
 });
-
 
 export default router;

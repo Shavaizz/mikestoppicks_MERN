@@ -73,8 +73,7 @@ router.put("/update/:id", protect,authAdmin,async (req, res) => {
 		const result = await Product.findByIdAndUpdate(id, req.body);
 		if (!result) {
 			return res.status(404).send({ message: "Product not found" });
-		}
-		{
+		} else {
 			return res.status(200).send({
 				message: "Product Updated Successfully!",
 				data: result,

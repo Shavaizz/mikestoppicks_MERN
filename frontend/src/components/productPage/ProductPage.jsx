@@ -11,24 +11,25 @@ const ProductPage = (user) => {
 			const result = await fetch("http://localhost:3000/api/products/");
 			const jsonResult = await result.json();
 			setProducts(jsonResult.data);
-			console.log("Json Data", jsonResult.data)
+			console.log("Json Data", jsonResult.data);
 		};
 		fetchProducts();
 	}, []);
 	const addToCart = (id) => {
 		const userIdMan = user.user?.id;
-		api.post("http://localhost:3000/api/cart/add", {
-			userId: userIdMan,
-			productId: id,
-			quantity: quantity,
-		})
-		.then(()=>{
-			setsuccessMessage("Product Added");
-			setTimeout(() => {
-				setsuccessMessage("");
-			}, 5000);
-		})
-		.catch(error=>console.error("Error adding to cart: ",error))
+		api
+			.post("http://localhost:3000/api/cart/add", {
+				userId: userIdMan,
+				productId: id,
+				quantity: quantity,
+			})
+			.then(() => {
+				setsuccessMessage("Product Added");
+				setTimeout(() => {
+					setsuccessMessage("");
+				}, 5000);
+			})
+			.catch((error) => console.error("Error adding to cart: ", error));
 	};
 	return (
 		<>

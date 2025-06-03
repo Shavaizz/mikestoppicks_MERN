@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Cart.css";
 import CartItems from "../../components/CartItems/CartItems";
 import Checkout from "../../components/Checkout/Checkout";
@@ -13,10 +13,18 @@ const Cart = (user) => {
 			</div>
 			<div className="cart-checkout-wrapper">
 				<div className="cart-item-wrapper">
-					<CartItems user={user} setTotalItemCount={setTotalQuantity} setTotalPrice={setTotalPrice} />
+					<CartItems
+						user={user}
+						setTotalItemCount={setTotalQuantity}
+						setTotalPrice={setTotalPrice}
+					/>
 				</div>
 				<div className="checkout-wrapper">
-					<Checkout user={user} totalPrice={totalPrice} totalQuantity={totalQuantity} />
+					<Checkout
+						user={user}
+						totalPrice={totalPrice}
+						totalQuantity={totalQuantity}
+					/>
 				</div>
 			</div>
 		</>

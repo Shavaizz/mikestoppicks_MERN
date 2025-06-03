@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import api from "../../axiosinstance";
 import "./CartItems.css";
-const CartItems = ({ user,setTotalPrice,setTotalItemCount }) => {
+const CartItems = ({ user, setTotalPrice, setTotalItemCount }) => {
 	const [cartObjects, setCartObjects] = useState([]);
-	const calculateTotal = (items)=>{
-		const totalPrice = items.reduce((acc,item)=> acc + item.productId.price*item.quantity, 0);
-		const totalQuantity = items.reduce((acc,item)=>acc + item.quantity,0)
-		setTotalPrice(totalPrice)
-		setTotalItemCount(totalQuantity)
+	const calculateTotal = (items) => {
+		const totalPrice = items.reduce(
+			(acc, item) => acc + item.productId.price * item.quantity,
+			0
+		);
+		const totalQuantity = items.reduce((acc, item) => acc + item.quantity, 0);
+		setTotalPrice(totalPrice);
+		setTotalItemCount(totalQuantity);
 	};
 	useEffect(() => {
 		const fetchCartObjects = async () => {
@@ -37,11 +40,13 @@ const CartItems = ({ user,setTotalPrice,setTotalItemCount }) => {
 									id="cart-item-image"
 								/>
 								<div className="cart-item-details">
-                                    <div className="cart-item-header">
-									<h3>{item.productId.title}</h3>
-										<p className="cart-price">${item.productId.price * item.quantity}</p>
-                                    </div>
-                                        <p className="cart-qty">Qty: {item.quantity}</p>
+									<div className="cart-item-header">
+										<h3>{item.productId.title}</h3>
+										<p className="cart-price">
+											${item.productId.price * item.quantity}
+										</p>
+									</div>
+									<p className="cart-qty">Qty: {item.quantity}</p>
 								</div>
 							</div>
 						</div>

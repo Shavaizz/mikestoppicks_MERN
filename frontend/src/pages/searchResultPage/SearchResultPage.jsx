@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import SearchBar from '../../components/searchBar/SearchBar'
-import './SearchResultPage.css'
+import SearchBar from "../../components/searchBar/SearchBar";
+import "./SearchResultPage.css";
 const SearchResultPage = () => {
 	const [products, setProducts] = useState([]);
 	const [errorMessage, setErrorMessage] = useState("");
@@ -38,19 +38,18 @@ const SearchResultPage = () => {
 
 	return (
 		<>
-            <SearchBar/>
+			<SearchBar />
 			<div className="Product-list">
-				{products.length > 0
-					? products.map((product) => (
-							<div key={product._id} className="Product-item">
-								<h3>{product.title}</h3>
-								<img src={product.image} alt={product.title} />
-								<p>Price: ${product.price}</p>
-							</div>
-					  ))
-					: !errorMessage && (
-							<p>No products to display</p>
-					  ) // Avoid conflicting error message
+				{
+					products.length > 0
+						? products.map((product) => (
+								<div key={product._id} className="Product-item">
+									<h3>{product.title}</h3>
+									<img src={product.image} alt={product.title} />
+									<p>Price: ${product.price}</p>
+								</div>
+						  ))
+						: !errorMessage && <p>No products to display</p> // Avoid conflicting error message
 				}
 			</div>
 		</>
