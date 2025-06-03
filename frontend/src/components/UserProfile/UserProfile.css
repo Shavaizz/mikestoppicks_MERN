@@ -1,12 +1,14 @@
 .complete-wrapper{
-    background-color: #2B2C2D;
-    border-radius: 15%;
-    padding: 20px; /* Add padding for better spacing */
-    margin: 30px auto; /* Center the wrapper */
-    max-width: 300px; /* Limit the width for better layout */
+    background-color: #a7c3c8;
+    border-radius: 1rem;
+    border: 2px solid #8185b1;
+
+    padding: 20px; 
+    margin: 30px auto;
+    max-width: 300px; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    align-items: center; 
     justify-content: center;
     text-align: center;
 }
@@ -41,3 +43,6 @@
     text-align: center;
 }
 
+.user-wrapper h2{
+    color:#ebf2f4
+}

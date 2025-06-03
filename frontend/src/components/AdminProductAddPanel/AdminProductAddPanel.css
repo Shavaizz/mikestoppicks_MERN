@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
+
 }
 #product-form-h2{
     display: flex;
@@ -15,9 +15,10 @@
 .product-form{
     display: flex;
     flex-direction: column;
-    background-color:#2B2C2D ;
+    background-color:#a7c3c8 ;
     padding: 10%;
-    border-radius: 10%;
+    border-radius: 1rem;
+    border: 2px solid #8185b1;
 
 }
 #product-add-form-button{
@@ -25,7 +26,7 @@
     padding: 10px 20px;
     font-size: 1rem;
     color: white;
-    background-color: #007BFF;
+    background-color: #002e47;
     border: none;
     border-radius: 8px;
     cursor: pointer;

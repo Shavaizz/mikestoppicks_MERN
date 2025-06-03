@@ -9,7 +9,7 @@ const Cart = (user) => {
 	return (
 		<>
 			<div className="cart-wrapper">
-				<h2>Welcome To Your Cart, {user.user?.usernick}</h2>
+				<h2>Welcome To Your Cart, {user.user?.usernick}!</h2>
 			</div>
 			<div className="cart-checkout-wrapper">
 				<div className="cart-item-wrapper">

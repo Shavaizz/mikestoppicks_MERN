@@ -1,22 +1,21 @@
-/* Outer scrollable container */
 .User-list-del-panel {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center align the cards horizontally */
-  justify-content: flex-start; /* Align items from the top */
-  overflow-y: auto; /* Enable vertical scrolling */
-  gap: 20px; /* Add spacing between product cards */
-  padding: 15px; /* Increase padding for better spacing */
-  border: 1px solid #ccc; /* Optional: Add a border around the container */
-  border-radius: 10px; /* Rounded corners for the container */
-  max-height: 500px; /* Increase height for better viewability */
-  width: 500px; /* Slightly larger width */
-  position: relative; /* Ensure positioning is relative to parent container */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  gap: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-height: 500px;
+  width: 500px;
+  position: relative;
   left: 50%;
-  transform: translateX(-50%); /* Center the container horizontally */
-  scrollbar-width: thin; /* Custom scrollbar styling (for modern browsers) */
+  transform: translateX(-50%);
+  scrollbar-width: thin;
   scrollbar-color: #888 #f1f1f1;
-  color: #4c4d4e;
+  color: #ebf2f4;
 }
 
 .User-list-del-panel::-webkit-scrollbar {
@@ -24,53 +23,49 @@
 }
 
 .User-list-del-panel::-webkit-scrollbar-thumb {
-  background-color: #888; /* Darker scrollbar thumb */
+  background-color: #ebf2f4;
   border-radius: 10px;
 }
 
 .User-list-del-panel::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Lighter scrollbar track */
+  background-color: #f1f1f1;
 }
 
-/* Card styling */
 .User-item-for-del {
-  display: flex; /* Align image and details side by side */
-  flex-direction: column; /* Arrange content vertically */
-  align-items: flex-start; /* Align content to the left */
-  background-color: #f9f9f9; /* Light background for the card */
-  border: 1px solid #ddd; /* Border around each card */
-  border-radius: 12px; /* Rounded corners for the card */
-  padding: 15px; /* Increase padding for better spacing */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Enhance shadow for a modern look */
-  width: 100%; /* Ensure responsiveness */
-  max-width: 450px; /* Make cards wider */
-  text-align: left; /* Align text to the left */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #8185b1;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  text-align: left;
   font-weight: 700;
 }
 
-/* Details styling */
 .User-details {
-  width: 100%; /* Ensure full width */
+  width: 100%;
 }
 
 .User-details h3 {
-  margin: 0 0 8px 0; /* Reduce spacing for the title */
-  font-size: 1.4rem; /* Increase font size */
-  color: #2B2C2D;
+  margin: 0 0 8px 0;
+  font-size: 1.4rem;
+  color: #ebf2f4;
 }
 
 .User-details p {
-  margin: 5px 0; /* Add consistent spacing between details */
-  font-size: 1rem; /* Increase font size */
-  color: #555; /* Subtle text color */
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #ebf2f4;
 }
 
-/* Refresh Button Styling */
 .fetch-button-admin-panel {
   display: flex;
-  justify-content: center; /* Center the button horizontally */
-  margin-top: 20px; /* Add spacing from the top */
-  
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .fetch-button-admin-panel button {
@@ -78,7 +73,7 @@
   font-size: 1rem;
   font-weight: bold;
   color: white;
-  background-color: #007BFF;
+  background-color: #002e47;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -86,8 +81,9 @@
 }
 
 .fetch-button-admin-panel button:hover {
-  background-color: #0056b3;
+  background-color: #a7c3c8;
 }
-.user-list-wrapper h2{
+
+.user-list-wrapper h2 {
   text-align: center;
 }

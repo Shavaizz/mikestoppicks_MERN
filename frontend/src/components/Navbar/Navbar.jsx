@@ -10,7 +10,7 @@ const Navbar = ({ user, setUser }) => {
 	};
 	return (
 		<div className="navbar-wrapper">
-			<h2 id="mike-heading">MikesTopPicks</h2>
+			<h2 id="mike-heading">Website</h2>
 			<nav className="navbar-nav">
 				<ul id="navbar-ul-wrapper">
 					{/* Not Logged In Navigation  */}

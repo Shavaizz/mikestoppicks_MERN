@@ -48,7 +48,7 @@ const Login = ({ onLogin }) => {
 				{error && <p style={{ color: "red" }}>{error}</p>}
 				<form id="form-wrapper" onSubmit={handleLogin} disabled={loading}>
 					<div>
-						<label>Username:</label> {/* Updated label */}
+						<label>Username: </label> {/* Updated label */}
 						<input
 							type="username"
 							value={username} // Updated to username
@@ -57,7 +57,7 @@ const Login = ({ onLogin }) => {
 						/>
 					</div>
 					<div>
-						<label>Password:</label>
+						<label>Password: </label>
 						<input
 							type="password"
 							value={password}

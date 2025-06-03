@@ -37,8 +37,8 @@ const UserOrderPanel = ({ user }) => {
 	};
 	return (
 		<>
+		<h2 id="cart-heading">Welcome To Orders Panel</h2>
 			<div className="order-wrapper-user">
-				<h2 id="cart-heading">Welcome To Your Cart</h2>
 				{orders.map((order) => (
 					<div key={order._id} className="order-card-user">
 						<h2>Order ID: {order._id}</h2>

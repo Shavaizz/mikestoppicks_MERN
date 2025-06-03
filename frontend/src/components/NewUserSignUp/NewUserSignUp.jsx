@@ -30,7 +30,7 @@ const NewUserSignUp = () => {
 	};
 	return (
 		<div className="user-creation-form-wrapper">
-			<h2 id="user-creation-form-h2">Create User</h2>
+			<h2 id="user-creation-form-h2">Resigter New User</h2>
 			<form className="user-creation-form">
 				<label htmlFor="user-signup-username">Username: </label>
 				<input

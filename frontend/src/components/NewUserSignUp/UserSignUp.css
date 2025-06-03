@@ -1,9 +1,11 @@
 .user-creation-form-wrapper{
     margin: 1%;
-    background-color: #2B2C2D;
-    border: 2px solid rgba(105, 104, 104, 0.582);
+    background-color: #a7c3c8;
+    border: 2px solid #8185b1;
     padding:1%;
     max-width: fit-content;
+    border-radius: 1rem;
+    padding: 2% 10%;
 }
 .user-creation-form{
     display: flex;
@@ -15,7 +17,7 @@
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    background-color: #007BFF;
+    background-color: #002e47;
     border: none;
     border-radius: 8px;
     cursor: pointer;

@@ -41,6 +41,7 @@ const OrderPanel = ({ user }) => {
 						<strong>Total Order Count : </strong>
 						{orderCount}
 					</p>
+          <div id="order-group-wrapper">
 					{Array.isArray(orders) &&
 						orders.map((order) => (
 							<div key={order._id} className="order-card-admin">
@@ -65,6 +66,7 @@ const OrderPanel = ({ user }) => {
 								</ul>
 							</div>
 						))}
+          </div>
 				</div>
 				<div className="order-actions">
 					<form className="order-update-form">

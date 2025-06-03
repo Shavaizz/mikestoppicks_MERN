@@ -38,6 +38,9 @@ const SearchResultPage = () => {
 
 	return (
 		<>
+		<div className="heading-wrapper">
+			<h2>Search Results: </h2>
+		</div>
 			<SearchBar />
 			<div className="Product-list">
 				{

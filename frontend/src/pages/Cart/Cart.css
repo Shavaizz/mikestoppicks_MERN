@@ -1,6 +1,8 @@
 .cart-wrapper h2{
     margin:5%;
+    margin-left: 18%;
     text-align: left;
+    font-size: 2vw;
 }
 .cart-wrapper{
     margin: 1%;
