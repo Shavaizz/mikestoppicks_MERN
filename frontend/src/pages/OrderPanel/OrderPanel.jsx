@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../../axiosinstance";
 import "./OrderPanel.css";
 import UserList from "../../components/UserList/UserList";
 const OrderPanel = ({ user }) => {
+	const navigate = useNavigate(); 
 	const [orders, setOrders] = useState([]);
 	const [orderCount, setOrderCount] = useState(0);
 	const [productId, setProductId] = useState(null);
@@ -41,7 +43,7 @@ const OrderPanel = ({ user }) => {
 						<strong>Total Order Count : </strong>
 						{orderCount}
 					</p>
-          <div id="order-group-wrapper">
+        	<div id="order-group-wrapper">
 					{Array.isArray(orders) &&
 						orders.map((order) => (
 							<div key={order._id} className="order-card-admin">

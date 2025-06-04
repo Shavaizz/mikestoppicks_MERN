@@ -2,18 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.css";
 import api from "../../axiosinstance";
-const Checkout = ({ user, totalPrice, totalQuantity }) => {
+import axios from "axios";
+const Checkout = ({ user, totalPrice, totalQuantity,clearCart }) => {
 	const navigate = useNavigate();
-
 	const orderPlacer = () => {
 		api.post("http://localhost:3000/api/order/create", {
 			user: user.user?.id,
 		});
-		navigate("/orders");
+		navigate("/");
 	};
-	const removeCartItems = () => {
-		api.delete(`http://localhost:3000/api/cart/clear/${user.user?.id}`);
-	};
+
 	return (
 		<>
 			<div className="checkout-wrapper">
@@ -29,7 +27,7 @@ const Checkout = ({ user, totalPrice, totalQuantity }) => {
 						<button type="button" onClick={orderPlacer}>
 							Place Order
 						</button>
-						<button type="button" onClick={removeCartItems}>
+						<button type="button" onClick={clearCart}>
 							Clear Cart
 						</button>
 					</div>

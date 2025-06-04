@@ -1,9 +1,11 @@
 import React from "react";
 import api from "../../axiosinstance";
-import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState,  } from "react";
 import "./UserOrderPanel.css";
 const UserOrderPanel = ({ user }) => {
 	const [orders, setOrders] = useState([]);
+	const navigate = useNavigate();
 	// const dataOrganizer = async (orderItems)=>{
 	//   orderItems.forEach(orderItem=>{
 	//     console.log("Order Id:", orderItem._id)
@@ -34,12 +36,14 @@ const UserOrderPanel = ({ user }) => {
 			`http://localhost:3000/api/order/delete/${orderIdInput}`
 		);
 		console.log(response);
+		setOrders([]);
 	};
 	return (
 		<>
 		<h2 id="cart-heading">Welcome To Orders Panel</h2>
 			<div className="order-wrapper-user">
-				{orders.map((order) => (
+				{orders.length > 0 ?(
+					orders.map((order) => (
 					<div key={order._id} className="order-card-user">
 						<h2>Order ID: {order._id}</h2>
 						<p id="order-status">
@@ -63,7 +67,6 @@ const UserOrderPanel = ({ user }) => {
 						</ul>
 						<div className="order-action-wrapper">
 							<button
-								type="button"
 								onClick={() => {
 									orderDeleter(order._id);
 								}}
@@ -72,7 +75,13 @@ const UserOrderPanel = ({ user }) => {
 							</button>
 						</div>
 					</div>
-				))}
+				))
+				):(
+					<p>
+						No Orders Yet!
+					</p>
+				)
+			}
 			</div>
 		</>
 	);
