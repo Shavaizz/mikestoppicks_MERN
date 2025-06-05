@@ -34,7 +34,7 @@ const AdminUserDelete = () => {
 						onClick={(e) => {
 							e.preventDefault();
 							deleteUser(userId);
-							userId = "";
+							setUserId("");
 						}}
 					>
 						Submit
