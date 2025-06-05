@@ -1,0 +1,22 @@
+.navbar-nav{
+    background-color: #8185b1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+#navbar-ul-wrapper{
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+}
+.navbar-wrapper h2{
+    margin: 0px;
+    color:#F1F0EA;
+}
+#logout-button-nav:hover{
+    background-color: #a7c3c8;
+    transition: 0.3s ease-in-out;
+}

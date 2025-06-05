@@ -1,5 +1,5 @@
-*{
-    color: #ebf2f4;
+.admin-layout {
+	display: flex;
 }
 .sidebar-wrapper{
     background-color: #8185b1;

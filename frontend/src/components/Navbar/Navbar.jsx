@@ -7,7 +7,33 @@ const Navbar = ({ user, setUser }) => {
 	if (user && !user.isAdmin) {
 		return <UserNavbar user={user} setUser={setUser} />;
 	} else if (user && user.isAdmin) {
-		return <AdminSiderbar user={user} setUser={setUser} />;
+		return (
+			<div className="admin-layout">
+				<div className="sidebar-wrapper">
+					<h2>MikesTopPicks</h2>
+					<div id="links">
+						<a className="link-items">
+							<Link to="/user-panel">User Panel</Link>
+						</a>
+						<a className="link-items">
+							<Link to="/product-panel">Product Panel</Link>
+						</a>
+						<a className="link-items">
+							<Link to="/order-panel">Order Panel</Link>
+						</a>
+						<button id="logout-button" onClick={handleLogout}>
+							Logout
+						</button>
+					</div>
+					<div id="copyright-and-misc-wrapper">
+						<p>
+							All Rights Reserved
+							<br /> Copyright 2025 MikesTopPicks
+						</p>
+					</div>
+				</div>
+			</div>
+		);
 	} else {
 		return (
 			<div className="navbar-wrapper">
