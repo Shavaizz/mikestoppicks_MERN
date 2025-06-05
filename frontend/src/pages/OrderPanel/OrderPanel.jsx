@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import api from "../../axiosinstance";
 import "./OrderPanel.css";
 import UserList from "../../components/UserList/UserList";
 const OrderPanel = ({ user }) => {
-	const navigate = useNavigate(); 
 	const [orders, setOrders] = useState([]);
 	const [orderCount, setOrderCount] = useState(0);
 	const [productId, setProductId] = useState(null);

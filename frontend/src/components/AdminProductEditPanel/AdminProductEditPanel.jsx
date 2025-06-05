@@ -26,8 +26,8 @@ const AdminProductEditPanel = () => {
 	return (
 		<>
 			<div className="product-edit-form-wrapper">
-				<h2 id="product-edit-form-h2">Edit Products</h2>
 				<form className="product-edit-form">
+				<h2 id="product-edit-form-h2">Edit Products</h2>
 					<label htmlFor="title-edit">Title:</label>
 					<input
 						value={title}

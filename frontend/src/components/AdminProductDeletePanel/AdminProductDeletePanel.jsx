@@ -22,8 +22,8 @@ const AdminProductDeletePanel = () => {
 	return (
 		<>
 			<div className="product-deletion-form-wrapper">
-				<h2 id="product-del-form-h2">Product Deletion Form</h2>
 				<form className="product-del-form">
+				<h2 id="product-del-form-h2">Product Deletion Form</h2>
 					<label htmlFor="productId" id="product-id-form-delete-panel">
 						Product Id:
 					</label>

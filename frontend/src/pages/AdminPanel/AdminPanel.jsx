@@ -13,14 +13,23 @@ const AdminPanel = ({ user }) => {
 	}, [user]);
 	return (
 		<>
-			<h2 className="AdminUserName">Welcome, {useradminname}</h2>
 			<div className="AdminPanelComponentsWrapper">
-				<AdminProductAddPanel />
-				<AdminProductEditPanel />
-				<AdminProductDeletePanel />
+				<div id="sub-wrapper-for-heading">
+				<div id="wrapper-1">
+					
+					<AdminProductAddPanel />
+					<div id="item-2">
+						<AdminProductDeletePanel />
+					</div>
+				</div>
+				<div id="wrapper-2">
+					<AdminProductEditPanel />
+				</div>
+				</div>
+				<div id="wrapper-3">
+					<AdminProductList />
+				</div>
 			</div>
-			<h2 id="product-list-admin-h2">Product List:</h2>
-			<AdminProductList />
 		</>
 	);
 };

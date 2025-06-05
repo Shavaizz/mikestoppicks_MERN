@@ -27,8 +27,8 @@ const AdminProductAddPanel = () => {
 	return (
 		<>
 			<div className="product-creation-form-wrapper">
-				<h2 id="product-form-h2">Create A New Product</h2>
 				<form className="product-form">
+					<h2 id="product-form-h2">Create A New Product</h2>
 					<label
 						htmlFor="title"
 						className="title-form-add-product-panel"

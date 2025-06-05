@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./CartItems.css";
-const CartItems = ({ user, setTotalPrice, setTotalItemCount, cartObjects }) => {
+const CartItems = ({ cartObjects }) => {
 	return (
 		<>
 			<div className="cart-body">
