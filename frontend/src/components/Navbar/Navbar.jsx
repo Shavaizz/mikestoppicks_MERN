@@ -1,11 +1,9 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AdminSiderbar from "../AdminSidebar/AdminSiderbar";
 import UserNavbar from "../UserNavbar/UserNavbar";
 import "./Navbar.css";
 const Navbar = ({ user, setUser }) => {
-	const navigate = useNavigate(); // Hook to navigate programmatically
-
 	if (user && !user.isAdmin) {
 		return <UserNavbar user={user} setUser={setUser} />;
 	} else if (user && user.isAdmin) {
