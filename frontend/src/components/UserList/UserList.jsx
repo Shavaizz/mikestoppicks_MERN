@@ -31,6 +31,7 @@ const UserList = () => {
 							<p>Nickname: {user.usernick}</p>
 							<p>Admin: {user.userisadmin ? "Yes" : "No"}</p>
 							<p>Created At: {new Date(user.createdAt).toLocaleString()}</p>
+							<p>UserId: {user._id}</p>
 						</div>
 					))}
 				</div>

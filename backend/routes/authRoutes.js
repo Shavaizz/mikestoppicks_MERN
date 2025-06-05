@@ -100,6 +100,7 @@ router.delete("/delete/:id", async(req,res)=>{
 		return res.status(200).send("User has been deleted successfully!");
 	} catch (error) {
 		res.status(500).json({ message: "Error creating user", error });
+		console.log(`Error creating user, ${error}`);
 	}
 });
 export default router;
