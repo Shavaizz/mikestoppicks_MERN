@@ -17,6 +17,28 @@ router.get("/users-list", protect, authAdmin, async (req, res) => {
 		res.status(500).json({ message: "Error Fetching Users.", error });
 	}
 });
+router.get("/user/:id", protect, authAdmin, async (req, res) => {
+	try {
+		const { id } = req.params;
+		const user = await User.findOne({ _id: id });
+		console.log("Tried here")
+		if (!user) {
+			console.log(
+				`User: ${req.user} tried access data for a user with id: ${id}, but this user doesn't exist!`
+			);
+			return res.status(404).send("User with this ID doesn't exist!");
+		}
+		console.log(
+			`User: ${req.user.id} tried to access data for a user with id: ${id}`
+		);
+		return res.status(200).json({
+			message: "User found successfully!",
+			user: user,
+		});
+	} catch (error) {
+		res.status(500).json({ message: "Error Fetching User", error });
+	}
+});
 router.post("/login", async (req, res) => {
 	try {
 		const { username, password } = req.body;
@@ -67,5 +89,17 @@ router.post("/register", async (req, res) => {
 });
 router.post("/logout", (req, res) => {
 	res.status(200).json({ message: "Logged out successfully" });
+});
+router.delete("/delete/:id", async(req,res)=>{
+	try {
+		const {id} = req.params;
+		const deletedUser = await User.deleteOne({_id:id});
+		if(!deletedUser){
+			return res.status(404).send("User can't be deleted, no user with this id exists!");
+		}
+		return res.status(200).send("User has been deleted successfully!");
+	} catch (error) {
+		res.status(500).json({ message: "Error creating user", error });
+	}
 });
 export default router;
