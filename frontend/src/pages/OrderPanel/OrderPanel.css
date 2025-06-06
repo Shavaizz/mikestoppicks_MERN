@@ -37,10 +37,3 @@
     margin-top: 5%;
     margin-left: 30%;
 }
-#order-group-wrapper{
-    border: 2px solid #8185b1;
-    border-radius: 1rem;
-    overflow-y: auto!important; 
-    max-height: 36%;
-
-}

@@ -93,7 +93,7 @@ const App = () => {
                             path="/splash"
                             element={
                                 <ProtectedRoute user={user}>
-                                    <Splash />
+                                    <Splash user={user}/>
                                 </ProtectedRoute>
                             }
                         />

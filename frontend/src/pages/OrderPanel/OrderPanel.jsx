@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../axiosinstance";
 import "./OrderPanel.css";
+import OrdersList from "../../components/OrdersList/OrdersList";
 import UserList from "../../components/UserList/UserList";
 const OrderPanel = ({ user }) => {
 	const [orders, setOrders] = useState([]);
@@ -63,42 +64,7 @@ const OrderPanel = ({ user }) => {
 	return (
 		<>
 			<div className="order-wrapper">
-				<div className="order-item-wrapper">
-					<h2>View All Orders</h2>
-					<p>
-						<strong>Total Order Count : </strong>
-						{orderCount}
-					</p>
-					<div id="order-group-wrapper">
-						{Array.isArray(orders) &&
-							orders.map((order) => (
-								<div key={order._id} className="order-card-admin">
-									<h2>Order ID: {order._id}</h2>
-									<p>
-										<strong>Status: </strong> {order.status}
-									</p>
-									<p>
-										<strong>Total Price: </strong> ${order.totalAmount}
-									</p>
-									<p>
-										<strong>UserID: </strong> {order.userId},
-									</p>
-									<p>
-										<strong>User: </strong> {userMap[order.userId]?.usernick}
-									</p>									
-									<h3>Items:</h3>
-									<ul>
-										{order.items.map((item) => (
-											<li key={item._id} className="order-details">
-												<strong>{item?.productId?.title}</strong> - Price: $
-												{item?.productId?.price}
-											</li>
-										))}
-									</ul>
-								</div>
-							))}
-					</div>
-				</div>
+				<OrdersList user={user}/>
 				<div className="order-actions">
 					<form className="order-update-form">
 						<label>
