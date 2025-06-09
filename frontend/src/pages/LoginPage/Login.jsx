@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./Login.css";
+import api from '../../axiosinstance'
 const Login = ({ onLogin }) => {
 	const [username, setUsername] = useState(""); // Renamed to email
 	const [password, setPassword] = useState("");

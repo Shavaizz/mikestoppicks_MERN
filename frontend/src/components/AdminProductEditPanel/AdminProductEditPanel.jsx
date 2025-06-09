@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from '../../axiosinstance'
 import "./AdminProductEditPanel.css";
 const AdminProductEditPanel = () => {
 	const [title, setTitle] = useState("");
@@ -9,7 +9,7 @@ const AdminProductEditPanel = () => {
 
 	const editProduct = async (e) => {
 		e.preventDefault();
-		const request = await axios.put(
+		const request = await api.put(
 			`http://localhost:3000/api/products/update/${productId}`,
 			{
 				price: price,

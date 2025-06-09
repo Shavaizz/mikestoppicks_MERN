@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
+import api from '../../axiosinstance'
 import "./AdminDeletePanel.css";
 const AdminProductDeletePanel = () => {
 	const [productId, setProductId] = useState("");
@@ -8,7 +8,7 @@ const AdminProductDeletePanel = () => {
 
 	const handleDeletion = async () => {
 		try {
-			const deleteRequest = await axios.delete(
+			const deleteRequest = await api.delete(
 				`http://localhost:3000/api/products/delete/${productId}`
 			); // Delete All Products
 			setProductId("");

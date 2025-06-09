@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.css";
 import api from "../../axiosinstance";
-import axios from "axios";
 const Checkout = ({ user, totalPrice, totalQuantity,clearCart }) => {
 	const navigate = useNavigate();
 	const orderPlacer = () => {
