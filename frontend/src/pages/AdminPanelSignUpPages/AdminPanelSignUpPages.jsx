@@ -12,7 +12,9 @@ const AdminPanelSignUpPages = () => {
 				<NewUserSignUp />
 				<AdminUserDelete />
 			</div>
-			<UserList />
+			<div className="user-list-page-wrapper">
+				<UserList />
+			</div>
 		</>
 	);
 };

@@ -3,14 +3,12 @@ import "./UserList.css";
 import api from "../../axiosinstance";
 const UserList = () => {
 	const [users, setUsers] = useState([]);
-	const [userCount, setUserCount] = useState(0);
 	const fetchUsers = async () => {
 		try {
 			const response = await api.get(
 				"http://localhost:3000/api/user/users-list"
 			);
 			setUsers(response.data.users);
-			setUserCount(response.data.user_count);
 		} catch (error) {
 			console.log("Error Occured:", error);
 		}

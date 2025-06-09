@@ -8,15 +8,15 @@ const Splash = ({ user }) => {
 	const [usersCount, setUsersCount] = useState(0);
 	const [productsCount, setProductsCount] = useState(0);
 	const [ordersCount, setOrdersCount] = useState(0);
-  const [products, setProducts] = useState([]);
-  
+	const [products, setProducts] = useState([]);
+	const [usersFetched, setUsersFetched] = useState([]);
+
 	const getUsers = async () => {
 		try {
 			const response = await api.get(
 				"http://localhost:3000/api/user/users-list"
 			);
 			const numberOfUsers = response.data.user_count;
-			console.log(numberOfUsers);
 			setUsersCount(numberOfUsers);
 		} catch (error) {
 			console.log("Error Occured:", error);
@@ -26,7 +26,6 @@ const Splash = ({ user }) => {
 		try {
 			const response = await api.get("http://localhost:3000/api/products/");
 			const numberOfProducts = response.data.count;
-			console.log(numberOfProducts);
 			setProductsCount(numberOfProducts);
 		} catch (error) {
 			console.log("Error Occured:", error);
@@ -36,27 +35,32 @@ const Splash = ({ user }) => {
 		try {
 			const response = await api.get("http://localhost:3000/api/order/");
 			const numberOfOrders = response.data.count;
-			console.log(numberOfOrders);
 			setOrdersCount(numberOfOrders);
 		} catch (error) {
 			console.log("Error Occured:", error);
 		}
 	};
-  const fetchProducts = async () => {
-      const result = await api.get("http://localhost:3000/api/products/");
-      console.log(`Result: ${result}`);
-      setProducts(result.data.data);
-      console.log(`Result Data: ${result.data.data}`)
-    };
-    useEffect(() => {
-      fetchProducts();
-    }, []);
+	const fetchProducts = async () => {
+		const result = await api.get("http://localhost:3000/api/products/");
+		setProducts(result.data.data);
+	};
+	const fetchUsers = async () => {
+		try {
+			const response = await api.get(
+				"http://localhost:3000/api/user/users-list"
+			);
+			setUsersFetched(response.data.users);
+		} catch (error) {
+			console.log("Error Occured:", error);
+		}
+	};
 	useEffect(() => {
-		getUsers();
+		fetchProducts();
+		fetchUsers();
 		getProduct();
 		getOrders();
+		getUsers();
 	}, [user]);
-
 	return (
 		<>
 			<div className="splash-wrapper">
@@ -75,18 +79,29 @@ const Splash = ({ user }) => {
 			</div>
 			<div className="dashboard-wrapper">
 				<div id="user-list-wrapper">
-					<UserList />
+					<div className="User-list-del-panel">
+						{usersFetched.map((user) => (
+							<div key={user._id} className="User-item-for-del">
+								<h3>Username: {user.username}</h3>
+								<p>Email: {user.email}</p>
+								<p>Nickname: {user.usernick}</p>
+								<p>Admin: {user.userisadmin ? "Yes" : "No"}</p>
+								<p>Created At: {new Date(user.createdAt).toLocaleString()}</p>
+								<p>UserId: {user._id}</p>
+							</div>
+						))}
+					</div>{" "}
 				</div>
-				<div id="product-list-wrapper">
-					<div className="Product-list-del-panel">
+				<div id="product-list-wrapper-splash">
+					<div className="Product-list-del-panel-splash">
 						{products.map((product) => (
-							<div key={product._id} className="Product-item-for-del">
+							<div key={product._id} className="Product-item-for-del-splash">
 								<img
 									src={product.image}
 									alt={product.title}
-									className="Product-img"
+									className="Product-img-splash"
 								/>
-								<div className="Product-details">
+								<div className="Product-details-splash">
 									<h3>{product.title}</h3>
 									<p>Price: ${product.price}</p>
 									<p>
@@ -96,11 +111,6 @@ const Splash = ({ user }) => {
 								</div>
 							</div>
 						))}
-					</div>
-					<div className="fetch-button-admin-panel">
-						<button type="button" onClick={fetchProducts}>
-							Fetch Products
-						</button>
 					</div>
 				</div>
 				<div id="order-wrapper">

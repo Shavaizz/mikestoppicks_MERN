@@ -26,7 +26,6 @@ const Login = ({ onLogin }) => {
 				onLogin({ user, token });
 				if (user.isAdmin) {
 					navigate("/splash");
-					console.log(token);
 				} else {
 					navigate("/");
 				}
@@ -35,7 +34,6 @@ const Login = ({ onLogin }) => {
 			}
 		} catch (err) {
 			setError(err.response?.data?.message);
-			console.log(err);
 		} finally {
 			setLoading(false);
 		}

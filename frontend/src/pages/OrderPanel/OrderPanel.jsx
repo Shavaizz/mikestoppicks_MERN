@@ -29,7 +29,6 @@ const OrderPanel = ({ user }) => {
 				console.log("No response from server");
 			}
 			setOrders(response.data.orders);
-			console.log(orders);
 			setOrderCount(response.data.count);
 		} catch (error) {
 			console.log("Error Occured: ", error);

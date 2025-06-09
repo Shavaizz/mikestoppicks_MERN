@@ -32,3 +32,7 @@
         max-width: 500px;
     }
 }
+.user-list-page-wrapper{
+    margin-right: 50%;
+    margin-left: 50%;
+}

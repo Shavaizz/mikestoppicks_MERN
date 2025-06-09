@@ -22,7 +22,6 @@ const App = () => {
         if (userData?.user && userData?.token) {
             setUser({ ...userData.user, token: userData.token });
             localStorage.setItem("token", userData.token);
-            console.log("UserLoggedIn");
         } else {
             console.warn("Invalid login response:", userData);
         }

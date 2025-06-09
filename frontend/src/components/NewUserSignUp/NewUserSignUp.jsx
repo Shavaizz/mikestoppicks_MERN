@@ -18,7 +18,6 @@ const NewUserSignUp = () => {
 			usernick: usernick,
 		});
 		const response = request.status;
-		console.log(response);
 		setCompletionMessage(
 			`User Created Successfully, UserName:${username}, Password:${password}`
 		);

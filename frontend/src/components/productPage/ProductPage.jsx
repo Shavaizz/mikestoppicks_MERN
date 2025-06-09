@@ -11,7 +11,6 @@ const ProductPage = (user) => {
 			const result = await fetch("http://localhost:3000/api/products/");
 			const jsonResult = await result.json();
 			setProducts(jsonResult.data);
-			console.log("Json Data", jsonResult.data);
 		};
 		fetchProducts();
 	}, []);

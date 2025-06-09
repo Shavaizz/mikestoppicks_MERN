@@ -4,8 +4,7 @@ import './OrdersList.css'
 const OrdersList = ({ user }) => {
 	const [orders, setOrders] = useState([]);
 	const [orderCount, setOrderCount] = useState(0);
-	const [productId, setProductId] = useState(null);
-	const [orderStatus, setOrderStatus] = useState("");
+
     const orderFetcher = async () => {
         try {
             const response = await api.get(`http://localhost:3000/api/order/`);
@@ -13,7 +12,6 @@ const OrdersList = ({ user }) => {
                 console.log("No response from server");
             }
             setOrders(response.data.orders);
-            console.log(orders);
             setOrderCount(response.data.count);
         } catch (error) {
             console.log("Error Occured: ", error);

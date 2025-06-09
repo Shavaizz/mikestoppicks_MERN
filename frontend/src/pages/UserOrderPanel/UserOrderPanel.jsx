@@ -14,9 +14,6 @@ const UserOrderPanel = ({ user }) => {
 					console.log("No response from server");
 				}
 				setOrders(response.data);
-				await console.log("Orders", orders);
-				await console.log("Order Status", orders.status);
-				// dataOrganizer(orders)
 			} catch (error) {
 				console.log("Error Occured: ", error);
 			}
@@ -27,7 +24,6 @@ const UserOrderPanel = ({ user }) => {
 		const response = await api.delete(
 			`http://localhost:3000/api/order/delete/${orderIdInput}`
 		);
-		console.log(response);
 		setOrders([]);
 	};
 	return (

@@ -18,7 +18,6 @@ const AdminProductEditPanel = () => {
 			}
 		);
 		const response = request.message;
-		console.log(response);
 		setTitle("");
 		setPrice(0);
 		setUrl("");
