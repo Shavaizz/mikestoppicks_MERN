@@ -22,7 +22,6 @@ const UserList = () => {
 	return (
 		<>
 			<div className="user-list-wrapper">
-				<h2>User List: {userCount}</h2>
 				<div className="User-list-del-panel">
 					{users.map((user) => (
 						<div key={user._id} className="User-item-for-del">

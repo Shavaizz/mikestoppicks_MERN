@@ -14,7 +14,7 @@ const Login = ({ onLogin }) => {
 		setLoading(true);
 		setError(""); // Clear previous errors
 		try {
-			const response = await axios.post(
+			const response = await api.post(
 				"http://localhost:3000/api/user/login",
 				{
 					username,

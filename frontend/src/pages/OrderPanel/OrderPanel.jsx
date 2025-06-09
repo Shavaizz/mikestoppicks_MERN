@@ -39,32 +39,33 @@ const OrderPanel = ({ user }) => {
 		orderFetcher();
 	}, [user.id]);
 	useEffect(() => {
-	if (Array.isArray(orders)) {
-		orders.forEach((order) => {
-			if (!userMap[order.userId]) {
-				userFetcher(order.userId);
-			}
-		});
-	}
+		if (Array.isArray(orders)) {
+			orders.forEach((order) => {
+				if (!userMap[order.userId]) {
+					userFetcher(order.userId);
+				}
+			});
+		}
 	}, [orders]);
 	const stateChanger = async () => {
 		try {
-		const responsestate = api.put(
+			const responsestate = api.put(
 				`http://localhost:3000/api/order/update/${productId}`,
 				{
 					status: orderStatus,
 				}
 			);
-		await orderFetcher();
+			await orderFetcher();
 		} catch (error) {
 			console.log("Error Occured: ", error);
 		}
-
 	};
 	return (
 		<>
 			<div className="order-wrapper">
-				<OrdersList user={user}/>
+				<div id="order-list-wrapper">
+					<OrdersList user={user} />
+				</div>
 				<div className="order-actions">
 					<form className="order-update-form">
 						<label>

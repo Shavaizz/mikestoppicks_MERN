@@ -22,6 +22,7 @@
     border: 2px solid #8185b1;
     border-radius: 1rem;
     width: 500px;
+    margin-bottom: 5%;
 }
 #submit-button-order-panel{
     padding: 10px 20px;
@@ -36,4 +37,8 @@
     max-width: fit-content;
     margin-top: 5%;
     margin-left: 30%;
+}
+#order-list-wrapper{
+    margin-top: 5%;
+    margin-left: 5%;
 }

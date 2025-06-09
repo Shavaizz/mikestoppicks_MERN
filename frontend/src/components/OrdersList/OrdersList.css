@@ -1,4 +1,11 @@
-#order-group-wrapper{
-    margin-top: 5%;
-    margin-left: 30%;
+#order-group-wrapper::-webkit-scrollbar {
+	width: 8px;
+}
+#order-group-wrapper::-webkit-scrollbar-thumb {
+	background-color: #ebf2f4;
+	border-radius: 10px;
+}
+
+#order-group-wrapper::-webkit-scrollbar-track {
+	background-color: #f1f1f1;
 }

@@ -18,3 +18,10 @@
     border-radius: 4rem;
     text-align: center;
 }
+.dashboard-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin-left: 15%;
+    margin-top: 1%;
+    justify-content: space-around;
+}

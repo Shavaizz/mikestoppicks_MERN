@@ -9,11 +9,14 @@ const router = express.Router();
 router.get("/users-list", protect, authAdmin, async (req, res) => {
 	try {
 		const users = await User.find({});
+		console.log("Requested user ID:", req.params.id);
 		return res.status(200).json({
 			user_count: users.length,
 			users: users,
 		});
+		
 	} catch (error) {
+		console.log(error)
 		res.status(500).json({ message: "Error Fetching Users.", error });
 	}
 });
@@ -33,6 +36,7 @@ router.get("/user/:id", protect, authAdmin, async (req, res) => {
 		});
 	} catch (error) {
 		res.status(500).json({ message: "Error Fetching User", error });
+		console.log(error)
 	}
 });
 router.post("/login", async (req, res) => {

@@ -6,7 +6,6 @@ const OrdersList = ({ user }) => {
 	const [orderCount, setOrderCount] = useState(0);
 	const [productId, setProductId] = useState(null);
 	const [orderStatus, setOrderStatus] = useState("");
-	const [userMap, setUserMap] = useState({});
     const orderFetcher = async () => {
         try {
             const response = await api.get(`http://localhost:3000/api/order/`);
@@ -36,10 +35,7 @@ const OrdersList = ({ user }) => {
 							<strong>Total Price: </strong> ${order.totalAmount}
 						</p>
 						<p>
-							<strong>UserID: </strong> {order.userId},
-						</p>
-						<p>
-							<strong>User: </strong> {userMap[order.userId]?.usernick}
+							<strong>UserID: </strong> {order.user},
 						</p>
 						<h3>Items:</h3>
 						<ul>
