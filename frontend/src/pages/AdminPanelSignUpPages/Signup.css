@@ -1,38 +1,38 @@
 .admin-panel-container {
-    padding: 1rem;
-    width: 100%;
+	padding: 1rem;
+	width: 100%;
 }
 
 .multi-user-sign-up-wrapper {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem 1rem;
-    max-width: fit-content;
-    margin-left: 25%;
+	display: flex;
+	gap: 2rem;
+	padding: 2rem 1rem;
+	max-width: fit-content;
+	margin-left: 25%;
 }
 
 .form-container {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
+	flex: 1;
+	min-width: 300px;
+	max-width: 400px;
 }
 
 .user-list-container {
-    margin-top: 2rem;
-    width: 100%;
+	margin-top: 2rem;
+	width: 100%;
 }
 
 @media (max-width: 1200px) {
-    .multi-user-sign-up-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-    .multi-user-sign-up-wrapper > * {
-        width: 100%;
-        max-width: 500px;
-    }
+	.multi-user-sign-up-wrapper {
+		flex-direction: column;
+		align-items: center;
+	}
+	.multi-user-sign-up-wrapper > * {
+		width: 100%;
+		max-width: 500px;
+	}
 }
-.user-list-page-wrapper{
-    margin-right: 50%;
-    margin-left: 50%;
+.user-list-page-wrapper {
+	margin-right: 50%;
+	margin-left: 50%;
 }

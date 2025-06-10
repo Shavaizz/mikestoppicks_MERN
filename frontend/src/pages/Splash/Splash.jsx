@@ -14,7 +14,7 @@ const Splash = ({ user }) => {
 	const getUsers = async () => {
 		try {
 			const response = await api.get(
-				"http://localhost:3000/api/user/users-list"
+				"/api/user/users-list"
 			);
 			const numberOfUsers = response.data.user_count;
 			setUsersCount(numberOfUsers);
@@ -24,7 +24,7 @@ const Splash = ({ user }) => {
 	};
 	const getProduct = async () => {
 		try {
-			const response = await api.get("http://localhost:3000/api/products/");
+			const response = await api.get("/api/products/");
 			const numberOfProducts = response.data.count;
 			setProductsCount(numberOfProducts);
 		} catch (error) {
@@ -33,7 +33,7 @@ const Splash = ({ user }) => {
 	};
 	const getOrders = async () => {
 		try {
-			const response = await api.get("http://localhost:3000/api/order/");
+			const response = await api.get("/api/order/");
 			const numberOfOrders = response.data.count;
 			setOrdersCount(numberOfOrders);
 		} catch (error) {
@@ -41,13 +41,13 @@ const Splash = ({ user }) => {
 		}
 	};
 	const fetchProducts = async () => {
-		const result = await api.get("http://localhost:3000/api/products/");
+		const result = await api.get("/api/products/");
 		setProducts(result.data.data);
 	};
 	const fetchUsers = async () => {
 		try {
 			const response = await api.get(
-				"http://localhost:3000/api/user/users-list"
+				"/api/user/users-list"
 			);
 			setUsersFetched(response.data.users);
 		} catch (error) {

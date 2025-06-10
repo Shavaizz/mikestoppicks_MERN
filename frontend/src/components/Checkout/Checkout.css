@@ -1,25 +1,25 @@
-.checkout-wrapper{
-    max-width: 400px;
-    background-color: #a7c3c8;
-    border: 2px solid #8185b1;
-    max-width: 500px;
-    color:#ebf2f4;
-    border-radius: 1rem;
+.checkout-wrapper {
+	max-width: 400px;
+	background-color: #a7c3c8;
+	border: 2px solid #8185b1;
+	max-width: 500px;
+	color: #ebf2f4;
+	border-radius: 1rem;
 }
-#checkout-heading{
-    padding: 5%;
+#checkout-heading {
+	padding: 5%;
 }
-.checkout-details-wrapper{
-    padding: 5%;
+.checkout-details-wrapper {
+	padding: 5%;
 }
-.checkout-actions button{
-    background-color: #002e47;
-    color: #ebf2f4;
-    margin-left: 1%;
-    border-radius: 1rem;
-    border: 2px solid #8185b1;
-    padding: 8px;
+.checkout-actions button {
+	background-color: #002e47;
+	color: #ebf2f4;
+	margin-left: 1%;
+	border-radius: 1rem;
+	border: 2px solid #8185b1;
+	padding: 8px;
 }
-.checkout-actions{
-    padding: 1;
+.checkout-actions {
+	padding: 1;
 }

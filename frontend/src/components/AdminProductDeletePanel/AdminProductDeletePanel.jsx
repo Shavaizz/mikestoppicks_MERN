@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import api from '../../axiosinstance'
+import api from "../../axiosinstance";
 import "./AdminDeletePanel.css";
 const AdminProductDeletePanel = () => {
 	const [productId, setProductId] = useState("");
@@ -8,11 +8,10 @@ const AdminProductDeletePanel = () => {
 
 	const handleDeletion = async () => {
 		try {
-			const deleteRequest = await api.delete(
-				`http://localhost:3000/api/products/delete/${productId}`
-			); // Delete All Products
+			await api.delete(
+				`/api/products/delete/${productId}`
+			);
 			setProductId("");
-			fetchProducts();
 			setDeletionMessage("The Product Has Been Deleted Sucssessfully!");
 		} catch (error) {
 			console.log("Error Occured:", error);
@@ -23,7 +22,7 @@ const AdminProductDeletePanel = () => {
 		<>
 			<div className="product-deletion-form-wrapper">
 				<form className="product-del-form">
-				<h2 id="product-del-form-h2">Product Deletion Form</h2>
+					<h2 id="product-del-form-h2">Product Deletion Form</h2>
 					<label htmlFor="productId" id="product-id-form-delete-panel">
 						Product Id:
 					</label>

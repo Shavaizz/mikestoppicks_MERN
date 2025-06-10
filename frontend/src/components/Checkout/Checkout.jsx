@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.css";
 import api from "../../axiosinstance";
-const Checkout = ({ user, totalPrice, totalQuantity,clearCart }) => {
+const Checkout = ({ user, totalPrice, totalQuantity, clearCart }) => {
 	const navigate = useNavigate();
 	const orderPlacer = () => {
-		api.post("http://localhost:3000/api/order/create", {
+		api.post("/api/order/create", {
 			user: user.user?.id,
 		});
 		navigate("/");

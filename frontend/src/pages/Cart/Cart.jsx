@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cart.css";
 import api from "../../axiosinstance";
 import CartItems from "../../components/CartItems/CartItems";
@@ -8,7 +8,7 @@ const Cart = (user) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalQuantity, setTotalQuantity] = useState(0);
 	const calculateTotal = (items) => {
-	const totalPrice = items.reduce(
+		const totalPrice = items.reduce(
 			(acc, item) => acc + item.productId.price * item.quantity,
 			0
 		);
@@ -20,7 +20,7 @@ const Cart = (user) => {
 		const fetchCartObjects = async () => {
 			try {
 				const response = await api.get(
-					`http://localhost:3000/api/cart/${user.user?.id}`
+					`/api/cart/${user.user?.id}`
 				);
 				setCartObjects(response.data.items);
 				calculateTotal(response.data.items);
@@ -32,9 +32,9 @@ const Cart = (user) => {
 	}, [user.user]);
 	const handleClearCart = async () => {
 		try {
-			await api.delete(`http://localhost:3000/api/cart/clear/${user.user?.id}`);
-			setCartObjects([]); 
-			calculateTotal([]); 
+			await api.delete(`/api/cart/clear/${user.user?.id}`);
+			setCartObjects([]);
+			calculateTotal([]);
 		} catch (error) {
 			console.error("Error clearing cart:", error);
 		}

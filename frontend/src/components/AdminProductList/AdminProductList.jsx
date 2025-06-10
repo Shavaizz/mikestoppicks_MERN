@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./AdminProductList.css";
+import api from "../../axiosinstance";
 const AdminProductList = () => {
 	const [products, setProducts] = useState([]);
-	const [productId, setProductId] = useState("");
-
 	const fetchProducts = async () => {
-		const result = await fetch("http://localhost:3000/api/products/");
-		const jsonResult = await result.json();
-		setProducts(jsonResult.data);
+		const result = await api.get("/api/products/");
+
+		setProducts(result.data.data);
 	};
 	useEffect(() => {
 		fetchProducts();

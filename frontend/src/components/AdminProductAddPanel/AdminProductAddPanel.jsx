@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import api from '../../axiosinstance'
+import api from "../../axiosinstance";
 import "./AdminProductAddPanel.css";
 const AdminProductAddPanel = () => {
 	const [title, setTitle] = useState("");
@@ -10,7 +10,7 @@ const AdminProductAddPanel = () => {
 		try {
 			e.preventDefault(); // Prevent page reload
 			const request = await api.post(
-				"http://localhost:3000/api/products/create",
+				"/api/products/create",
 				{
 					price: price,
 					image: url,

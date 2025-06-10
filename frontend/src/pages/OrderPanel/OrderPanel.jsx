@@ -12,7 +12,7 @@ const OrderPanel = ({ user }) => {
 	const userFetcher = async (userId) => {
 		try {
 			const response = await api.get(
-				`http://localhost:3000/api/user/user/${userId}`
+				`/api/user/user/${userId}`
 			);
 			setUserMap((prev) => ({
 				...prev,
@@ -24,7 +24,7 @@ const OrderPanel = ({ user }) => {
 	};
 	const orderFetcher = async () => {
 		try {
-			const response = await api.get(`http://localhost:3000/api/order/`);
+			const response = await api.get(`/api/order/`);
 			if (!response) {
 				console.log("No response from server");
 			}
@@ -48,8 +48,8 @@ const OrderPanel = ({ user }) => {
 	}, [orders]);
 	const stateChanger = async () => {
 		try {
-			const responsestate = api.put(
-				`http://localhost:3000/api/order/update/${productId}`,
+			api.put(
+				`/api/order/update/${productId}`,
 				{
 					status: orderStatus,
 				}

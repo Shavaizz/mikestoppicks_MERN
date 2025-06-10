@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./Login.css";
-import api from '../../axiosinstance'
+import api from "../../axiosinstance";
 const Login = ({ onLogin }) => {
-	const [username, setUsername] = useState(""); // Renamed to email
+	const [username, setUsername] = useState(""); 
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
@@ -12,15 +12,12 @@ const Login = ({ onLogin }) => {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		setError(""); // Clear previous errors
+		setError(""); 
 		try {
-			const response = await api.post(
-				"http://localhost:3000/api/user/login",
-				{
-					username,
-					password,
-				}
-			);
+			const response = await api.post("/api/user/login", {
+				username,
+				password,
+			});
 			const { user, token } = response.data;
 			if (user && token) {
 				onLogin({ user, token });

@@ -8,16 +8,15 @@ const ProductPage = (user) => {
 	const [successMessage, setsuccessMessage] = useState("");
 	useEffect(() => {
 		const fetchProducts = async () => {
-			const result = await fetch("http://localhost:3000/api/products/");
-			const jsonResult = await result.json();
-			setProducts(jsonResult.data);
+			const result = await api.get("/api/products/");
+			setProducts(result.data.data);
 		};
 		fetchProducts();
 	}, []);
 	const addToCart = (id) => {
 		const userIdMan = user.user?.id;
 		api
-			.post("http://localhost:3000/api/cart/add", {
+			.post("/api/cart/add", {
 				userId: userIdMan,
 				productId: id,
 				quantity: quantity,

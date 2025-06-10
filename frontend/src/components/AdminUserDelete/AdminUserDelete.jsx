@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import api from "../../axiosinstance";
-import './AdminUserDelete.css'
+import "./AdminUserDelete.css";
 const AdminUserDelete = () => {
 	const [userId, setUserId] = useState("");
-	const deleteUser = async (id)=>{
-        try {
-            api.delete(`http://localhost:3000/api/user/delete/${id}`)
-        } catch (error) {
-            console.log(`Error encountered, while trying to delete user, Error: ${error}`)
-        }
-        
-    }
+	const deleteUser = async (id) => {
+		try {
+			api.delete(`/api/user/delete/${id}`);
+		} catch (error) {
+			console.log(
+				`Error encountered, while trying to delete user, Error: ${error}`
+			);
+		}
+	};
 	return (
 		<>
 			<div className="user-delete-form-wrapper">

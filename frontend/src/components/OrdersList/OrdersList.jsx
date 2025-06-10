@@ -7,7 +7,7 @@ const OrdersList = ({ user }) => {
 
     const orderFetcher = async () => {
         try {
-            const response = await api.get(`http://localhost:3000/api/order/`);
+            const response = await api.get(`/api/order/`);
             if (!response) {
                 console.log("No response from server");
             }

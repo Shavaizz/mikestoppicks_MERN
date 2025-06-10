@@ -63,12 +63,14 @@ router.get("/:userId", protect, async (req, res) => {
 router.delete("/delete/:id", protect, async (req, res) => {
 	try {
 		const { id } = req.params;
-		const order = await Order.findByIdAndDelete(id,req.body);
+		const order = await Order.findByIdAndDelete(id, req.body);
 		if (!order) {
 			return res.status(404).send({ message: "Order not found" });
 		}
 		res.status(200).send({ message: "Order deleted successfully" });
-		console.log(`Order Deleted \nOrder ID: ${id},\nDeleted By User: ${req.user.username}`)
+		console.log(
+			`Order Deleted \nOrder ID: ${id},\nDeleted By User: ${req.user.username}`
+		);
 	} catch (error) {
 		console.log(error);
 		res.status(500).send({ message: error.message });
@@ -106,7 +108,7 @@ router.put("/update/:id", protect, authAdmin, async (req, res) => {
 		res
 			.status(200)
 			.send({ message: "Order status updated successfully", order });
-		console.log(``)
+		console.log(``);
 	} catch (error) {
 		console.log(error);
 		res.status(500).send({ message: error.message });

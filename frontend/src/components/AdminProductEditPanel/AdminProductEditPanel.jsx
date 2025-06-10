@@ -1,32 +1,28 @@
 import React, { useState } from "react";
-import api from '../../axiosinstance'
+import api from "../../axiosinstance";
 import "./AdminProductEditPanel.css";
 const AdminProductEditPanel = () => {
 	const [title, setTitle] = useState("");
 	const [price, setPrice] = useState(0);
 	const [url, setUrl] = useState("");
 	const [productId, setProductId] = useState("");
-
 	const editProduct = async (e) => {
 		e.preventDefault();
-		const request = await api.put(
-			`http://localhost:3000/api/products/update/${productId}`,
-			{
-				price: price,
-				image: url,
-				title: title,
-			}
-		);
-		const response = request.message;
+		await api.put(`/api/products/update/${productId}`, {
+			price: price,
+			image: url,
+			title: title,
+		});
 		setTitle("");
 		setPrice(0);
 		setUrl("");
+		setProductId("");
 	};
 	return (
 		<>
 			<div className="product-edit-form-wrapper">
 				<form className="product-edit-form">
-				<h2 id="product-edit-form-h2">Edit Products</h2>
+					<h2 id="product-edit-form-h2">Edit Products</h2>
 					<label htmlFor="title-edit">Title:</label>
 					<input
 						value={title}

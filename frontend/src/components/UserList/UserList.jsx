@@ -6,7 +6,7 @@ const UserList = () => {
 	const fetchUsers = async () => {
 		try {
 			const response = await api.get(
-				"http://localhost:3000/api/user/users-list"
+				"/api/user/users-list"
 			);
 			setUsers(response.data.users);
 		} catch (error) {

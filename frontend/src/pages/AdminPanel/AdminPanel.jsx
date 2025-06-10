@@ -15,16 +15,15 @@ const AdminPanel = ({ user }) => {
 		<>
 			<div className="AdminPanelComponentsWrapper">
 				<div id="sub-wrapper-for-heading">
-				<div id="wrapper-1">
-					
-					<AdminProductAddPanel />
-					<div id="item-2">
-						<AdminProductDeletePanel />
+					<div id="wrapper-1">
+						<AdminProductAddPanel />
+						<div id="item-2">
+							<AdminProductDeletePanel />
+						</div>
 					</div>
-				</div>
-				<div id="wrapper-2">
-					<AdminProductEditPanel />
-				</div>
+					<div id="wrapper-2">
+						<AdminProductEditPanel />
+					</div>
 				</div>
 				<div id="wrapper-3">
 					<AdminProductList />

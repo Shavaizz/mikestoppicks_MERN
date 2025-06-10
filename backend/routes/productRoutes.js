@@ -39,7 +39,7 @@ router.get("/find/:name", async (req, res) => {
 
 // ADMIN ROUTES
 // Create Product
-router.post("/create",protect,authAdmin, async (req, res) => {
+router.post("/create", protect, authAdmin, async (req, res) => {
 	try {
 		if (!req.body.title || !req.body.price) {
 			return res.status(400).send({
@@ -62,7 +62,7 @@ router.post("/create",protect,authAdmin, async (req, res) => {
 });
 
 // Update Product
-router.put("/update/:id", protect,authAdmin,async (req, res) => {
+router.put("/update/:id", protect, authAdmin, async (req, res) => {
 	try {
 		if (!req.body.title || !req.body.price) {
 			return res
@@ -86,7 +86,7 @@ router.put("/update/:id", protect,authAdmin,async (req, res) => {
 });
 
 // Delete Product
-router.delete("/delete/:id",protect,authAdmin, async (req, res) => {
+router.delete("/delete/:id", protect, authAdmin, async (req, res) => {
 	try {
 		const { id } = req.params;
 		const result = await Product.findByIdAndDelete(id, req.body);
@@ -105,6 +105,5 @@ router.delete("/delete/:id",protect,authAdmin, async (req, res) => {
 		return res.status(500).send({ message: error.message });
 	}
 });
-
 
 export default router;

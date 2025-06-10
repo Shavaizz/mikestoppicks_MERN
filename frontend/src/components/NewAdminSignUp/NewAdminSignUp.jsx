@@ -10,14 +10,13 @@ const NewAdminSignUp = () => {
 	const [completionMessage, setCompletionMessage] = useState("");
 	const makeNewUser = async (e) => {
 		e.preventDefault();
-		const request = await api.post("http://localhost:3000/api/user/register", {
+		await api.post("/api/user/register", {
 			username: username,
 			email: email,
 			password: password,
 			userisadmin: userisadmin,
 			usernick: usernick,
 		});
-		const response = request.status;
 		setCompletionMessage(
 			`User Created Successfully, UserName:${username}, Password:${password}`
 		);

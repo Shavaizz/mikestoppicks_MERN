@@ -1,86 +1,87 @@
 .Product-list-del-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow-y: auto;
-    gap: 20px;
-    padding: 10px;
-    border: 2px solid #8185b1;
-    border-radius: 10px;
-    max-height: 400px;
-    width: 440px;
-    height: auto;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	overflow-y: auto;
+	gap: 20px;
+	padding: 15px;
+	border: 2px solid #8185b1;
+	border-radius: 10px;
+	max-height: 400px;
+	width: 440px;
+	height: auto;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	scrollbar-width: thin;
+	scrollbar-color: #888 #f1f1f1;
 }
 
 .Product-list-del-panel::-webkit-scrollbar {
-    width: 8px;
+	width: 8px;
 }
 
 .Product-list-del-panel::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 10px;
+	background-color: #888;
+	border-radius: 10px;
 }
 
 .Product-list-del-panel::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+	background-color: #f1f1f1;
 }
 
 .Product-item-for-del {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #8185b1;
-    border: 2px solid #a7c3c8;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #8185b1;
+	border: 2px solid #a7c3c8;
+	border-radius: 10px;
+	padding: 10px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+
 }
 
 .Product-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 15px;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 15px;
 }
 
 .Product-details {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 .Product-details h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.2rem;
-    color: #ebf2f4;
+	margin: 0 0 5px 0;
+	font-size: 1.2rem;
+	color: #ebf2f4;
 }
 
 .Product-details p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: #ebf2f4;
+	margin: 5px 0;
+	font-size: 0.9rem;
+	color: #ebf2f4;
 }
 
 .fetch-button-admin-panel button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #343232;
-    background-color: #a7c3c8;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #343232;
+	background-color: #a7c3c8;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
 }
 
 .fetch-button-admin-panel button:hover {
-    background-color: #002e47;
+	background-color: #002e47;
 }
