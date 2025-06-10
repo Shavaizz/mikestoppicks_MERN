@@ -11,3 +11,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+#search-bar-click-button{
+	font-size: 8pt;
+	font-weight: bold;
+	color: #ebf2f4;
+	background-color: #a7c3c8;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+}
