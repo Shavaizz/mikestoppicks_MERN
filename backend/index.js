@@ -12,9 +12,9 @@ const app = express();
 app.use(express.json());
 app.use(
 	cors({
-		origin: "http://localhost:5173", // Replace with your frontend's URL
-		methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-		credentials: true, // Allow credentials (optional)
+		origin: "http://localhost:5173", 
+		methods: ["GET", "POST", "PUT", "DELETE"], 
+		credentials: true, 
 	})
 );
 
@@ -28,7 +28,6 @@ app.get("/", async (req, res) => {
 	}
 });
 
-// Handles all requests to /api/products
 app.use("/api/products", productRoutes);
 app.use("/api/user", authRoutes);
 app.use("/api/cart", cartRoutes);
